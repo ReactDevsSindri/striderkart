@@ -12,13 +12,18 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-button {
+button,
+.button {
   all: unset;
   padding: 6px 16px;
   background: var(--red);
   height: 32px;
   color: white;
   font-weight: 500;
+  width: 150px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
 }
 /* .container {
   margin: 0 auto;
