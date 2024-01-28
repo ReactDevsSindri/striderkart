@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import ProductListPage from "./pages/ProductListPage";
 import Login from "./pages/Login";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,14 +19,19 @@ function App() {
       element: <Homepage />,
     },
     {
-      path: "/productpage/:productId/:color/:storage",
-      element: <ProductListPage />,
+      path:"/productlistpage",
+      element: <ProductListPage/>
+    },
+    {
+      path: "/productpage/:productId",
+      element: <ProductPage />,
     },
     { path: "/LoginPage/", element: <Login /> },
   ]);
   return (
     <>
       <Navigation />
+      <div style={{height:'72px'}}></div>
       <RouterProvider router={router} />
     </>
   );

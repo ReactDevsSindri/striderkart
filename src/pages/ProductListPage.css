@@ -27,3 +27,13 @@
 .product-details-main {
   width: 90%;
 }
+
+.product-list-thumbnail{
+  width: 20em;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.product-list-thumbnail > img{
+  width: 100%;
+}
