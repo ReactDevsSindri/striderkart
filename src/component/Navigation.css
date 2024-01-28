@@ -41,3 +41,7 @@ nav ul {
   list-style: none;
   gap: 24px;
 }
+.cart {
+  height: 50px;
+  width: auto;
+}

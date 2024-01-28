@@ -23,6 +23,7 @@ const Navigation = () => {
       <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Logout" : "Login"}
       </button>
+      <img className="cart" src={Images.Cart}></img>
     </nav>
   );
 };

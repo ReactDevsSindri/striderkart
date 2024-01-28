@@ -5,6 +5,7 @@ import HeroImg from "./hero-image.png";
 import Shoe1 from "./Shoe1.png";
 import Shoe1a from "./Shoe1a.png";
 import Shoe1b from "./Shoe1b.png";
+import Cart from "./cart.png";
 export default {
   AmazonImg,
   BrandLogo,
@@ -13,4 +14,5 @@ export default {
   Shoe1,
   Shoe1a,
   Shoe1b,
+  Cart,
 };

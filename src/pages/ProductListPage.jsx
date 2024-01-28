@@ -6,6 +6,7 @@ import "./ProductListPage.css";
 const ProductListPage = () => {
   let { productId, color, storage } = useParams();
   let [img, setImg] = useState(Images.Shoe1);
+  let [cart, setCart] = useState(true);
   return (
     <>
       {/* <div>
@@ -20,6 +21,9 @@ const ProductListPage = () => {
       <div className="shoe1">
         <img className="shoe1" src={img} alt="Nike Blue"></img>
         <p className="shoe-name">Revolution 6 Running Shoes For Men {color}</p>
+        <button onClick={() => setCart(!cart)}>
+          {cart ? "Add to Cart" : "Remove from cart"}
+        </button>
       </div>
       <div className="shoe">
         <img
