@@ -2,12 +2,16 @@
   text-align: center;
   color: blueviolet;
   text-shadow: 2px 2px 8px #ff0000;
+  cursor: pointer;
+  height: 500px;
+  width: auto;
 }
 
 .shoe {
   display: flex;
+  cursor: pointer;
   gap: 10px;
   flex-direction: row;
   height: 100px;
-  width: auto;
+  width: 300px;
 }
