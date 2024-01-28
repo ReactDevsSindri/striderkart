@@ -14,11 +14,11 @@ const Body = () => {
 
         <div className="hero-btn">
           <NavLink
-            to={`/productpage/${1}/black/128`}
+            to={`/productpage/${1}/blue/128`}
             className={"button"}
             style={{ textDecoration: "none" }}
           >
-            Nike Black
+            Nike Blue
           </NavLink>
           <NavLink
             to={"/productpage/2/grey/64"}

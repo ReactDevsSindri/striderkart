@@ -1,0 +1,13 @@
+.shoe1 {
+  text-align: center;
+  color: blueviolet;
+  text-shadow: 2px 2px 8px #ff0000;
+}
+
+.shoe {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  height: 100px;
+  width: auto;
+}
