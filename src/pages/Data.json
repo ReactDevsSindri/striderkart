@@ -1,0 +1,29 @@
+{
+  "productId": 1,
+  "name": "Men's Running Shoes",
+  "brand": "Nike",
+  "description": "These men's running shoes provide responsive cushioning and a secure fit for your daily runs.",
+  "price": 89.99,
+  "currency": "USD",
+  "image": "mens_running_shoes.jpg",
+  "stock": 50,
+  "attributes": {
+    "color": "Black/White",
+    "size": ["8", "9", "10", "11", "12"],
+    "material": "Mesh and Synthetic"
+  },
+  "reviews": [
+    {
+      "id": 1,
+      "user": "Alex",
+      "rating": 5,
+      "comment": "Great shoes, very comfortable!"
+    },
+    {
+      "id": 2,
+      "user": "Emily",
+      "rating": 4,
+      "comment": "Good quality, true to size."
+    }
+  ]
+}

@@ -4,9 +4,12 @@ import Homepage from "./pages/Homepage";
 import {
   BrowserRouter as Router,
   RouterProvider,
+  Switch,
+  Link,
   createBrowserRouter,
 } from "react-router-dom";
 import ProductListPage from "./pages/ProductListPage";
+import Login from "./pages/Login";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +21,7 @@ function App() {
       path: "/productpage/:productId/:color/:storage",
       element: <ProductListPage />,
     },
+    { path: "/LoginPage/", element: <Login /> },
   ]);
   return (
     <>
