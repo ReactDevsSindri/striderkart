@@ -6,3 +6,4 @@ ProductPage
 CartPage
 OrdersPage
 LoginPage
+UserProfilePage
