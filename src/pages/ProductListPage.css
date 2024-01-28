@@ -3,8 +3,12 @@
   color: blueviolet;
   text-shadow: 2px 2px 8px #ff0000;
   cursor: pointer;
-  height: 500px;
-  width: auto;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.shoe1 > img {
+  height: 100%;
 }
 
 .shoe {
@@ -13,5 +17,13 @@
   gap: 10px;
   flex-direction: row;
   height: 100px;
-  width: 300px;
+}
+
+.product-thumbnail {
+  width: 120px;
+  border-radius: 10px;
+}
+
+.product-details-main {
+  width: 90%;
 }
