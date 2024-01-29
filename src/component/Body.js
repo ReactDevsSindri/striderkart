@@ -1,5 +1,5 @@
 import "./Body.css";
-import Images from "../assets/img/index";
+import Images from "../assets/index";
 import { NavLink } from "react-router-dom";
 const Body = () => {
   return (
@@ -11,37 +11,20 @@ const Body = () => {
           SHOES.YOUR FEET DESERVE THE BEST AND WE’RE HERE TO HELP YOU WITH OUR
           SHOES.
         </p>
-
-        <div className="hero-btn">
-          <NavLink
-            to={`/productpage/${1}/blue/128`}
+        
+      <NavLink
+            to={"/productlistpage"}
             className={"button"}
             style={{ textDecoration: "none" }}
           >
-            Nike Blue
+            Explore
           </NavLink>
-          <NavLink
-            to={"/productpage/2/grey/64"}
-            className={"button"}
-            style={{ textDecoration: "none" }}
-          >
-            Nike Grey
-          </NavLink>
-        </div>
-
-        <div className="shopping">
-          <p>Also Available On</p>
-
-          <div className="brand-icons">
-            <img src={Images.AmazonImg} alt="amazon-logo" />
-            <img src={Images.Flipkart} alt="flipkart-logo" />
-          </div>
-        </div>
       </div>
       <div className="hero-image">
         <img src={Images.HeroImg} alt="hero-image" />
       </div>
     </main>
+    
   );
 };
 export default Body;

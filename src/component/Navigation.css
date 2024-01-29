@@ -40,8 +40,17 @@ nav ul {
   display: flex;
   list-style: none;
   gap: 24px;
+  margin-left: auto;
 }
 .cart {
   height: 50px;
   width: auto;
+}
+.navbar{
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content:space-between;
+  left: 0;
+  right: 0;
 }
