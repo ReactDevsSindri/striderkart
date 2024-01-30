@@ -50,3 +50,11 @@
     --ring: 240 4.9% 83.9%;
   }
 }
+
+.top{
+  z-index: 1000;
+}
+
+.navbar{
+  height: 72px;
+}

@@ -12,12 +12,13 @@ function App() {
   return (
     <>
       <Router>
-        <Navigation />
+        <Navigation key={localStorage.getItem('isLoggedIn')} />
+        {/* <div style={{marginTop:'72px'}}></div> */}
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/productlistpage" element={<ProductListPage />} />
           <Route path="/productpage/:productId" element={<ProductPage />} />
-          <Route path="/LoginPage/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
       <div style={{ height: "72px" }}></div>
