@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductListPage from "./pages/ProductListPage";
 import Login from "./pages/Login";
 import ProductPage from "./pages/ProductPage";
+import { createPortal } from "react-dom";
 
 import { Button } from "./components/ui/button";
 
@@ -12,8 +13,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navigation key={localStorage.getItem('isLoggedIn')} />
-        {/* <div style={{marginTop:'72px'}}></div> */}
+    {createPortal(<Navigation />, document.getElementById("navbar"))}
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/productlistpage" element={<ProductListPage />} />
@@ -21,7 +21,6 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
-      <div style={{ height: "72px" }}></div>
     </>
   );
 }
