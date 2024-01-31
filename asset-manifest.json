@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/striderkart/static/css/main.883264e7.css",
-    "main.js": "/striderkart/static/js/main.0f785b01.js",
+    "main.js": "/striderkart/static/js/main.4c85fe2f.js",
     "static/js/787.ef3f9875.chunk.js": "/striderkart/static/js/787.ef3f9875.chunk.js",
     "static/media/hero-image.png": "/striderkart/static/media/hero-image.a6925ff450589eac50e5.png",
     "static/media/Shoe1.png": "/striderkart/static/media/Shoe1.4b4713a3b0d3783841b6.png",
@@ -12,11 +12,11 @@
     "static/media/rayrun-shoes.avif": "/striderkart/static/media/rayrun-shoes.0338e76b3b9585ddfd2c.avif",
     "index.html": "/striderkart/index.html",
     "main.883264e7.css.map": "/striderkart/static/css/main.883264e7.css.map",
-    "main.0f785b01.js.map": "/striderkart/static/js/main.0f785b01.js.map",
+    "main.4c85fe2f.js.map": "/striderkart/static/js/main.4c85fe2f.js.map",
     "787.ef3f9875.chunk.js.map": "/striderkart/static/js/787.ef3f9875.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.883264e7.css",
-    "static/js/main.0f785b01.js"
+    "static/js/main.4c85fe2f.js"
   ]
 }
