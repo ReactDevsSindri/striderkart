@@ -13,7 +13,8 @@ function App() {
   return (
     <>
       <Router>
-    {createPortal(<Navigation />, document.getElementById("navbar"))}
+        <Navigation key={localStorage.getItem("isLoggedIn")} />
+        <div style={{ marginTop: "72px" }}></div>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/productlistpage" element={<ProductListPage />} />
