@@ -1,17 +1,13 @@
 import "./Body.css";
 import Images from "../assets/index";
 import { NavLink } from "react-router-dom";
-import { Button } from "../components/ui/button";
 import { Toaster } from "../components/ui/toaster"
-import { ToastAction } from "../components/ui/toast"
-import { useToast } from "../components/ui/use-toast"
 const Body = () => {
-  const { toast } = useToast()
   return (
     <>
-    <main className="hero container">
-      <div className="hero-content">
-        <h1>YOUR FEET DESERVE THE BEST</h1>
+      <main className="flex h-screen">
+        <div className="w-1/3">
+          <h1 className="text-9xl">YOUR FEET DESERVE THE BEST</h1>
         <p>
           YOUR FEET DESERVE THE BEST AND WE’RE HERE TO HELP YOU WITH OUR
           SHOES.YOUR FEET DESERVE THE BEST AND WE’RE HERE TO HELP YOU WITH OUR
@@ -33,33 +29,12 @@ const Body = () => {
             Nike Grey
           </NavLink>
         </div>
-
-        <div className="shopping">
-          <p>Also Available On</p>
-
-          <div className="brand-icons">
-            <img src={Images.AmazonImg} alt="amazon-logo" />
-            <img src={Images.Flipkart} alt="flipkart-logo" />
-          </div>
-          <Button
-      onClick={() => {
-        toast({
-          title: "Added to cart",
-          description: "Nike shoe added to cart",
-          action: (
-            <ToastAction  altText="Goto schedule to undo">Ok</ToastAction>
-          ),
-        })
-      }}
-    >
-      Add to cart
-    </Button>
-        </div>
-      <div className="hero-image">
-        <img src={Images.HeroImg} alt="hero-image" />
+        <div className="hero-image size-2/3">
+          <img src={Images.HeroImg} alt="hero-image" className="m-auto w-3/4" />
       </div>
     </main>
-    <Toaster /></>
+      <Toaster />
+    </>
   );
-};
+}
 export default Body;

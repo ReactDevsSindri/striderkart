@@ -1,4 +1,3 @@
-import { createPortal } from "react-dom";
 import "./Navigation.css";
 import Images from "../assets";
 import { useState } from "react";
@@ -93,5 +92,4 @@ const Navigation = () => {
   );
 };
 
-createPortal(<Navigation />, document.getElementById("navbar"));
 export default Navigation;
