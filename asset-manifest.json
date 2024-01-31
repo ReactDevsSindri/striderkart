@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/striderkart/static/css/main.883264e7.css",
+    "main.js": "/striderkart/static/js/main.33b35e27.js",
+    "static/js/787.ef3f9875.chunk.js": "/striderkart/static/js/787.ef3f9875.chunk.js",
+    "static/media/hero-image.png": "/striderkart/static/media/hero-image.a6925ff450589eac50e5.png",
+    "static/media/Shoe1.png": "/striderkart/static/media/Shoe1.4b4713a3b0d3783841b6.png",
+    "static/media/Shoe1a.png": "/striderkart/static/media/Shoe1a.6de4ad7a861334df20f7.png",
+    "static/media/Shoe1b.png": "/striderkart/static/media/Shoe1b.5cea64a227ae6e2cb240.png",
+    "static/media/brand_logo.png": "/striderkart/static/media/brand_logo.35d9e497340ee3cd6d7e.png",
+    "static/media/cart.png": "/striderkart/static/media/cart.0edb59010b1db3cbc904.png",
+    "static/media/rayrun-shoes.avif": "/striderkart/static/media/rayrun-shoes.0338e76b3b9585ddfd2c.avif",
+    "index.html": "/striderkart/index.html",
+    "main.883264e7.css.map": "/striderkart/static/css/main.883264e7.css.map",
+    "main.33b35e27.js.map": "/striderkart/static/js/main.33b35e27.js.map",
+    "787.ef3f9875.chunk.js.map": "/striderkart/static/js/787.ef3f9875.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.883264e7.css",
+    "static/js/main.33b35e27.js"
+  ]
+}
