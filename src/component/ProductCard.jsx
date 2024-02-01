@@ -2,6 +2,7 @@ import React from "react";
 
 import Rayrunshoes from "../assets/img/rayrun-shoes.avif";
 import { NavLink } from "react-router-dom";
+import { Button } from "../components/ui/button";
 
 const ProductCard = ({ product }) => {
   return (
@@ -24,7 +25,7 @@ const ProductCard = ({ product }) => {
         className="btn btn-success"
         style={{ position: "absolute", right: 5, bottom: 5 }}
       >
-        View
+        <Button>Details</Button> {/* <img src={product.imgSrc} /> */}
       </NavLink>
     </div>
   );

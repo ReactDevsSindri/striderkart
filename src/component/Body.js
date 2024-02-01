@@ -30,7 +30,11 @@ const Body = () => {
         </div>
 
         <div className="flex justify-center w-1/2">
-          <img className="w-3/4" src={Images.HeroImg} alt="hero-image" />
+          <NavLink to="/red-nike">
+            <div className="">
+              <img className="w-3/4" src={Images.HeroImg} alt="hero-image" />
+            </div>
+          </NavLink>
         </div>
       </main>
       <Toaster />

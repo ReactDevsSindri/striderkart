@@ -25,12 +25,13 @@ const ProductListPage = () => {
   console.log(Products);
   return (
     <>
-    <div className="row">
-    {Assets.productListData.map(product=>
-      <div className="col-3 d-flex justify-content-center">
-      <ProductCard product={product}/>
-      </div>)}
-    </div>
+      <div className="row">
+        {Assets.productListData.map((product) => (
+          <div className="flex">
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div>
     </>
   );
 };
