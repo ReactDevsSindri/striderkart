@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import Images from "../assets/index";
 import { useParams } from "react-router-dom";
 import assets from "../assets/index";
+import { Button } from "../components/ui/button";
 
 const ProductPage = () => {
   let { productId } = useParams();
   let [img, setImg] = useState(Images.Shoe1);
   let [cart, setCart] = useState(true);
   let [Products, setProducts] = useState([]);
+  // const btnName =;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +30,10 @@ const ProductPage = () => {
         <div className="row">
           <div className="col-8 p-3 d-flex flex-column align-items-center">
             <div className="shoe1 p-3  ">
-              <img src={assets.productListData[productId-1].imgSrc} alt="Nike Blue"></img>
+              <img
+                src={assets.productListData[productId - 1].imgSrc}
+                alt="Nike Blue"
+              ></img>
             </div>
             <div className="shoe mt-5  d-flex justify-content-center">
               <img
@@ -52,14 +57,12 @@ const ProductPage = () => {
             </div>
           </div>
           <div className="col-4 ">
-            <h1>{assets.productListData[productId-1].name}</h1>
+            <h1>{assets.productListData[productId - 1].name}</h1>
 
-            <p className="shoe-name">
-              Revolution 6 Running Shoes For Men
-            </p>
-            <button onClick={() => setCart(!cart)}>
+            <p className="shoe-name">Revolution 6 Running Shoes For Men</p>
+            <Button onClick={() => setCart(!cart)}>
               {cart ? "Add to Cart" : "Remove from cart"}
-            </button>
+            </Button>
           </div>
         </div>
       </div>

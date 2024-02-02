@@ -8,6 +8,7 @@ import ProductPage from "./pages/ProductPage";
 import { createPortal } from "react-dom";
 
 import { Button } from "./components/ui/button";
+import HomePageProduct from "./component/HomePageProduct";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/productlistpage" element={<ProductListPage />} />
           <Route path="/productpage/:productId" element={<ProductPage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/red-nike" element={<HomePageProduct />} />
         </Routes>
       </Router>
     </>
