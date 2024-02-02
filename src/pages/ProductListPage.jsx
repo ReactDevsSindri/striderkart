@@ -25,9 +25,9 @@ const ProductListPage = () => {
   console.log(Products);
   return (
     <>
-      <div className="row">
+      <div className="flex p-5 flex-wrap justify-center">
         {Assets.productListData.map((product) => (
-          <div className="flex">
+          <div className="mx-5">
             <ProductCard product={product} />
           </div>
         ))}
