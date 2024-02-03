@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "/striderkart/static/css/main.9563c5ac.css",
-    "main.js": "/striderkart/static/js/main.b8670675.js",
+    "main.css": "/striderkart/static/css/main.592f8676.css",
+    "main.js": "/striderkart/static/js/main.372f1c35.js",
     "static/js/787.ef3f9875.chunk.js": "/striderkart/static/js/787.ef3f9875.chunk.js",
     "static/media/hero-image.png": "/striderkart/static/media/hero-image.a6925ff450589eac50e5.png",
     "static/media/Shoe1.png": "/striderkart/static/media/Shoe1.4b4713a3b0d3783841b6.png",
     "static/media/Shoe1a.png": "/striderkart/static/media/Shoe1a.6de4ad7a861334df20f7.png",
     "static/media/Shoe1b.png": "/striderkart/static/media/Shoe1b.5cea64a227ae6e2cb240.png",
     "static/media/brand_logo.png": "/striderkart/static/media/brand_logo.35d9e497340ee3cd6d7e.png",
+    "static/media/red-nike-1.jpg": "/striderkart/static/media/red-nike-1.189bf5723de92a61cb03.jpg",
     "static/media/cart.png": "/striderkart/static/media/cart.0edb59010b1db3cbc904.png",
+    "static/media/red-nike-3.jpg": "/striderkart/static/media/red-nike-3.ab090fdded9ac37a2cca.jpg",
+    "static/media/red-nike-2.jpg": "/striderkart/static/media/red-nike-2.725c011aa7b33701fc1c.jpg",
     "static/media/rayrun-shoes.avif": "/striderkart/static/media/rayrun-shoes.0338e76b3b9585ddfd2c.avif",
     "index.html": "/striderkart/index.html",
-    "main.9563c5ac.css.map": "/striderkart/static/css/main.9563c5ac.css.map",
-    "main.b8670675.js.map": "/striderkart/static/js/main.b8670675.js.map",
+    "main.592f8676.css.map": "/striderkart/static/css/main.592f8676.css.map",
+    "main.372f1c35.js.map": "/striderkart/static/js/main.372f1c35.js.map",
     "787.ef3f9875.chunk.js.map": "/striderkart/static/js/787.ef3f9875.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9563c5ac.css",
-    "static/js/main.b8670675.js"
+    "static/css/main.592f8676.css",
+    "static/js/main.372f1c35.js"
   ]
 }
