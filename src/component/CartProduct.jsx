@@ -7,6 +7,7 @@ const CartProduct = ({ productId }) => {
       <img
         style={{ width: "100px" }}
         src={assets.productListData[productId - 1].imgSrc}
+        alt="product"
       />
       <div style={{ paddingLeft: "10px" }}>
         <p>{assets.productListData[productId - 1].name}</p>

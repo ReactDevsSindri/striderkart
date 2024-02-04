@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Assets from "../assets/index";
-import { useParams } from "react-router-dom";
 import "./ProductListPage.css";
 import ProductCard from "../component/ProductCard";
 
 const ProductListPage = () => {
-  let { productId, color, storage } = useParams();
-  let [img, setImg] = useState(Assets.Shoe1);
-  let [cart, setCart] = useState(true);
   let [Products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {

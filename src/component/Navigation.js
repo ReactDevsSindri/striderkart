@@ -1,25 +1,19 @@
 import "./Navigation.css";
 import Images from "../assets";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Label } from "../components/ui/label";
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "../components/ui/sheet";
 import { ScrollArea } from "../components/ui/scroll-area";
 import { Separator } from "../components/ui/separator";
 
-import { ShoppingBasket, LogIn, LogOut } from "lucide-react";
-import ProductCard from "./ProductCard";
+import { ShoppingBasket, LogOut } from "lucide-react";
 import CartProduct from "./CartProduct";
 import AppContext from "../context/AppContext";
 import assets from "../assets";
