@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Images from "../assets/index";
 import { useParams } from "react-router-dom";
 import assets from "../assets/index";
 import { Button } from "../components/ui/button";
 import { ToastAction } from "../components/ui/toast";
 import { useToast } from "../components/ui/use-toast";
+import AppContext from "../context/AppContext";
 
 const ProductPage = () => {
+  const appContext = useContext(AppContext);
   let { productId } = useParams();
   let [img, setImg] = useState(Images.Shoe1);
   let [cart, setCart] = useState(true);
@@ -28,6 +30,31 @@ const ProductPage = () => {
     fetchData();
   }, []);
   console.log(Products);
+  function addItemToCart() {
+    if (appContext.contextValues.cart.find((ci) => ci === productId)) {
+      toast({
+        title: "Already Added to Cart",
+        description: "Please add another product",
+        action: (
+          <div style={{ zIndex: "100" }}>
+            <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+          </div>
+        ),
+      });
+    } else {
+      appContext.setContextValues({
+        ...appContext.contextValues,
+        cart: [...appContext.contextValues.cart, productId],
+      });
+    }
+  }
+  function removeFromCart() {
+    appContext.setContextValues({
+      ...appContext.contextValues,
+      cart: appContext.contextValues.cart.filter((pi) => pi !== productId),
+    });
+  }
+
   return (
     <>
       <div className="grid grid-cols-4">
@@ -70,8 +97,8 @@ const ProductPage = () => {
             <h4 className="text-lime-500">Special Price</h4>
             <h3>
               ₹{assets.productListData[productId - 1].price}
-              <span className="line-through mx-2 text-slate-400">₹5000</span>
-              <span>90% off</span>
+              <span className="line-through mx-2 text-slate-400 ">₹5000</span>
+              <span className="text-xs text-red-400">Offer Of the Year</span>
             </h3>
           </div>
           <h1 className="text-xs">
@@ -118,8 +145,8 @@ const ProductPage = () => {
             className="mt-5 mx-1"
             onClick={() => {
               toast({
-                title: "Scheduled: Catch up ",
-                description: "Friday, February 10, 2023 at 5:57 PM",
+                title: "Yahooo Added to Cart",
+                description: "Expected Delivery 30 Feb",
                 action: (
                   <div style={{ zIndex: "100" }}>
                     <ToastAction altText="Goto schedule to undo">
@@ -128,16 +155,39 @@ const ProductPage = () => {
                   </div>
                 ),
               });
+              addItemToCart();
+              setCart(!cart);
+              if (!cart) {
+                removeFromCart();
+              }
             }}
           >
-            {/* {cart ? "Add to Cart" : "Remove from cart"} */}
-            "Add to Cart"
+            {cart ? "Add to Cart" : "Remove from cart"}
+            {cart}
           </Button>
+          {/* <Button onClick={() => removeFromCart()}>Remove From Cart</Button> */}
           <Button className="bg-slate-300 text-black hover:text-white">
             Buy Now
           </Button>
         </div>
       </div>
+      {/* <Button
+        className="mt-5 mx-1"
+        onClick={() => {
+          toast({
+            title: "Scheduled: Catch up ",
+            description: "Friday, February 10, 2023 at 5:57 PM",
+            action: (
+              <div style={{ zIndex: "100" }}>
+                <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+              </div>
+            ),
+          });
+        }}
+      >
+        {cart ? "Add to Cart" : "Remove from cart"}
+        {cart}
+      </Button> */}
     </>
   );
 };
