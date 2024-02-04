@@ -1,14 +1,10 @@
 import Navigation from "./component/Navigation";
-import Body from "./component/Body";
 import Homepage from "./pages/Homepage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, HashRouter } from "react-router-dom";
 import ProductListPage from "./pages/ProductListPage";
 import Login from "./pages/Login";
 import ProductPage from "./pages/ProductPage";
-import { createPortal } from "react-dom";
 import { Toaster } from "./components/ui/toaster";
-import { Button } from "./components/ui/button";
-import HomePageProduct from "./component/HomePageProduct";
 import AppContext from "./context/AppContext";
 import { useEffect, useState } from "react";
 
@@ -30,7 +26,7 @@ function App() {
   return (
     <AppContext.Provider value={{ contextValues, setContextValues }}>
       <>
-        <Router>
+        <HashRouter>
           <Navigation key={localStorage.getItem("isLoggedIn")} />
           <div style={{ marginTop: "72px" }}></div>
           <Routes>
@@ -38,11 +34,10 @@ function App() {
             <Route path="/productlistpage" element={<ProductListPage />} />
             <Route path="/productpage/:productId" element={<ProductPage />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/red-nike" element={<HomePageProduct />} />
           </Routes>
 
           <Toaster />
-        </Router>
+        </HashRouter>
       </>
     </AppContext.Provider>
   );

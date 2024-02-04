@@ -1,12 +1,8 @@
 import React from "react";
-import { ToastAction } from "../components/ui/toast";
-import { useToast } from "../components/ui/use-toast";
-import Rayrunshoes from "../assets/img/rayrun-shoes.avif";
 import { NavLink } from "react-router-dom";
 import { Button } from "../components/ui/button";
 
 const ProductCard = ({ product }) => {
-  const { toast } = useToast();
   return (
     <div
       className="border product-list-thumbnail shadow "
@@ -16,7 +12,7 @@ const ProductCard = ({ product }) => {
         to={`/productpage/${product.productId}`}
         className="btn btn-success"
       >
-        <img src={product.imgSrc} />
+        <img src={product.imgSrc} alt="Poduct" />
         <p
           className="m-0 mt-2 ps-2"
           style={{

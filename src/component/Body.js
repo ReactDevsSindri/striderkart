@@ -2,11 +2,7 @@ import "./Body.css";
 import Images from "../assets/index";
 import { NavLink } from "react-router-dom";
 import { Button } from "../components/ui/button";
-
-import { ToastAction } from "../components/ui/toast";
-import { useToast } from "../components/ui/use-toast";
 const Body = () => {
-  const { toast } = useToast();
   return (
     <>
       <main className="flex mt-28 ml-10">
