@@ -2,7 +2,7 @@ import "./Body.css";
 import Images from "../assets/index";
 import { NavLink } from "react-router-dom";
 import { Button } from "../components/ui/button";
-import { Toaster } from "../components/ui/toaster";
+
 import { ToastAction } from "../components/ui/toast";
 import { useToast } from "../components/ui/use-toast";
 const Body = () => {
@@ -37,7 +37,6 @@ const Body = () => {
           </NavLink>
         </div>
       </main>
-      <Toaster />
     </>
   );
 };
