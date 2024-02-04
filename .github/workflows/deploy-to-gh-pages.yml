@@ -23,5 +23,3 @@ jobs:
           branch: gh-pages
           folder: build # The folder the action should deploy.
           github_token: ${{ secrets.GITHUB_TOKEN }} 
-
-          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
