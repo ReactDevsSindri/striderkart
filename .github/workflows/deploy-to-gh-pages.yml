@@ -2,7 +2,7 @@ name: Build and Deploy
 on: 
   push:
     branches:
-      - master
+      - main 
 permissions:
   contents: write
 jobs:
@@ -15,11 +15,10 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm install
-          npm run-script build
+          npm run build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4.1.1
         with:
           branch: gh-pages
           folder: build # The folder the action should deploy.
-          github_token: ${{ secrets.ACCESS_TOKEN }} 
