@@ -33,13 +33,8 @@ const ProductPage = () => {
   function addItemToCart() {
     if (appContext.contextValues.cart.find((ci) => ci === productId)) {
       toast({
-        title: "Already Added to Cart",
+        title: "Removed From cart",
         description: "Please add another product",
-        action: (
-          <div style={{ zIndex: "100" }}>
-            <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-          </div>
-        ),
       });
     } else {
       appContext.setContextValues({
@@ -147,13 +142,6 @@ const ProductPage = () => {
               toast({
                 title: "Yahooo Added to Cart",
                 description: "Expected Delivery 30 Feb",
-                action: (
-                  <div style={{ zIndex: "100" }}>
-                    <ToastAction altText="Goto schedule to undo">
-                      Undo
-                    </ToastAction>
-                  </div>
-                ),
               });
               addItemToCart();
               setCart(!cart);
