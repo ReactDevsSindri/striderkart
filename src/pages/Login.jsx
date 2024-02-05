@@ -34,8 +34,8 @@ const Login = () => {
   };
 
   return (
-    <>
-      <Card className="w-[400px]">
+    <div className="flex justify-center">
+      <Card className="w-[400px] mt-32">
         <CardHeader>
           <CardTitle>Login</CardTitle>
           <CardDescription>Enter your login credentials.</CardDescription>
@@ -67,7 +67,7 @@ const Login = () => {
           </NavLink>
         </CardFooter>
       </Card>
-    </>
+    </div>
   );
 };
 

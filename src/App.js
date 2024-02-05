@@ -1,12 +1,18 @@
 import Navigation from "./component/Navigation";
 import Homepage from "./pages/Homepage";
-import { BrowserRouter as Router, Route, Routes, HashRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  HashRouter,
+} from "react-router-dom";
 import ProductListPage from "./pages/ProductListPage";
 import Login from "./pages/Login";
 import ProductPage from "./pages/ProductPage";
 import { Toaster } from "./components/ui/toaster";
 import AppContext from "./context/AppContext";
 import { useEffect, useState } from "react";
+import ContactUs from "./component/ContactUs";
 
 function App() {
   const [contextValues, setContextValues] = useState({
@@ -34,6 +40,7 @@ function App() {
             <Route path="/productlistpage" element={<ProductListPage />} />
             <Route path="/productpage/:productId" element={<ProductPage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/contactus" element={<ContactUs />} />
           </Routes>
 
           <Toaster />
