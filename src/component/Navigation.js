@@ -33,7 +33,7 @@ const Navigation = () => {
 
   return (
     <div className="">
-      <nav className="navbar flex w-full justify-around bg-slate-300">
+      <nav className="navbar z-10 flex w-full justify-around bg-slate-300">
         <NavLink to="/">
           <div className="logo">
             <img src={Images.BrandLogo} alt="logo" />
