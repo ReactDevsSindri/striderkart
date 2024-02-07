@@ -13,14 +13,17 @@ import {
 import { ScrollArea } from "../components/ui/scroll-area";
 import { Separator } from "../components/ui/separator";
 
-import { ShoppingBasket, LogOut } from "lucide-react";
+import { ShoppingBasket, LogOut, MoonStarIcon } from "lucide-react";
 import CartProduct from "./CartProduct";
 import AppContext from "../context/AppContext";
 import assets from "../assets";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { HamburgerMenuIcon, SunIcon } from "@radix-ui/react-icons";
+import { Switch } from "../components/ui/switch";
+import ThemeContext from "../context/ThemeContext";
 
 const Navigation = () => {
   const appContext = useContext(AppContext);
+  const themData = useContext(ThemeContext);
   console.log(appContext);
   function calculateTotal() {
     const priceArry = appContext.contextValues.cart.map(
@@ -30,9 +33,19 @@ const Navigation = () => {
     const Total = priceArry.reduce((a, b) => a + b, 0);
     return Total;
   }
+  console.log(themData);
+  const handleThemeSwithch = (e) => {
+    themData.setThemeValue({ currentMode: e ? "dark" : "light" });
+  };
 
   return (
-    <div className="navbar z-10 flex  justify-around bg-slate-300">
+    <div
+      className={`navbar z-10 flex  justify-around ${
+        themData.themeValue.currentMode === "dark"
+          ? "bg-slate-800"
+          : "bg-slate-300"
+      }`}
+    >
       <div className="w-1/2 flex justify-start">
         <NavLink to="/" className="w-2/3">
           <img src={Images.BrandLogo} alt="logo" />
@@ -160,6 +173,16 @@ const Navigation = () => {
           </SheetFooter>
         </SheetContent>
       </Sheet>
+      <div className="flex items-center space-x-2">
+        <SunIcon />
+
+        <Switch
+          checked={themData.themeValue.currentMode === "dark"}
+          onCheckedChange={(e) => handleThemeSwithch(e)}
+        />
+
+        <MoonStarIcon />
+      </div>
     </div>
   );
 };

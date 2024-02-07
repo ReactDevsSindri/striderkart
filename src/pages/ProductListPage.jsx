@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Assets from "../assets/index";
 import "./ProductListPage.css";
 import ProductCard from "../component/ProductCard";
+import ThemeContext from "../context/ThemeContext";
 
 const ProductListPage = () => {
+  const themeData = useContext(ThemeContext);
+  const darkclass = themeData.themeValue.currentMode === "dark";
   let [Products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {

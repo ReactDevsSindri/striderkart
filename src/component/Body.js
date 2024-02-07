@@ -2,10 +2,19 @@ import "./Body.css";
 import Images from "../assets/index";
 import { NavLink } from "react-router-dom";
 import { Button } from "../components/ui/button";
+import { useContext } from "react";
+import ThemeContext from "../context/ThemeContext";
 const Body = () => {
+  const themeData = useContext(ThemeContext);
+  console.log("themedata" + themeData);
+  const darkclass = themeData.themeValue.currentMode === "dark";
   return (
     <>
-      <main className="flex flex-col-reverse p-5  md:flex-row pt-28 ml-10">
+      <main
+        className={`flex flex-col-reverse p-5  md:flex-row pt-28 pl-10  ${
+          darkclass ? "bg-slate-800 text-white" : ""
+        }`}
+      >
         <div>
           <h1 className="text-6xl	font-mono ">YOUR FEET DESERVE THE BEST</h1>
           <p className="text-2xl mt-10">
