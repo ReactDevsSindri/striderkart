@@ -3,7 +3,7 @@ import Body from "../component/Body";
 
 const Homepage = () => {
   return (
-    <div>
+    <div className="h-screen  ">
       <Body />
     </div>
   );

@@ -36,15 +36,16 @@ const Login = () => {
   return (
     <div className="flex justify-center">
       <Card className="w-[400px] mt-32">
-        <CardHeader>
-          <CardTitle>Login</CardTitle>
+        <CardHeader className=" ">
+          <CardTitle className=" ">Login</CardTitle>
           <CardDescription>Enter your login credentials.</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-2">
+        <CardContent className="space-y-2  ">
           <div className="space-y-1">
             <Label htmlFor="email">Email</Label>
             <Input
               id="email"
+              placeholder="Enter your email here"
               onChange={(e) =>
                 setLoginCred({ ...loginCred, email: e.target.value })
               }
@@ -54,13 +55,14 @@ const Login = () => {
             <Label htmlFor="password">Password</Label>
             <Input
               id="password"
+              placeholder="Enter your password here"
               onChange={(e) =>
                 setLoginCred({ ...loginCred, password: e.target.value })
               }
             />
           </div>
         </CardContent>
-        <CardFooter>
+        <CardFooter className=" ">
           <Button onClick={() => handleUserLogin()}>Login</Button>
           <NavLink style={{ textDecoration: "underline", marginLeft: "10px" }}>
             New Here? Create Account

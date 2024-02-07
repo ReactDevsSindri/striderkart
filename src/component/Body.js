@@ -5,7 +5,7 @@ import { Button } from "../components/ui/button";
 const Body = () => {
   return (
     <>
-      <main className="flex flex-col-reverse p-5  md:flex-row mt-28 ml-10">
+      <main className="flex flex-col-reverse p-5  md:flex-row pt-28 ml-10">
         <div>
           <h1 className="text-6xl	font-mono ">YOUR FEET DESERVE THE BEST</h1>
           <p className="text-2xl mt-10">

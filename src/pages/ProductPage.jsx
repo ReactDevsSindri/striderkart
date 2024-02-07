@@ -52,14 +52,14 @@ const ProductPage = () => {
 
   return (
     <>
-      <div className="grid grid-cols-4">
+      <div className="h-screen grid grid-cols-4  ">
         <div className="col-span-3 p-3">
           <img
             className="h-1/2"
             src={assets.productListData[productId - 1].imgSrc}
             alt="Nike Blue"
           ></img>
-          <div className="shoe mt  d-flex justify-content-center md:flex flex-row size-20 ">
+          <div className="shoe  d-flex justify-content-center md:flex flex-row size-20 ">
             <img
               className="product-thumbnail shadow "
               src={Images.Shoe1}
@@ -79,7 +79,7 @@ const ProductPage = () => {
               onMouseOver={() => setImg(Images.Shoe1b)}
             ></img>
           </div>
-          <div className="mt-32  ">
+          <div className="">
             <h1 className="text-xl">
               {assets.productListData[productId - 1].name}
             </h1>
@@ -156,23 +156,6 @@ const ProductPage = () => {
           </div>
         </div>
       </div>
-      {/* <Button
-        className="mt-5 mx-1"
-        onClick={() => {
-          toast({
-            title: "Scheduled: Catch up ",
-            description: "Friday, February 10, 2023 at 5:57 PM",
-            action: (
-              <div style={{ zIndex: "100" }}>
-                <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-              </div>
-            ),
-          });
-        }}
-      >
-        {cart ? "Add to Cart" : "Remove from cart"}
-        {cart}
-      </Button> */}
     </>
   );
 };

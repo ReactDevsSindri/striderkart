@@ -5,7 +5,7 @@ import { Button } from "../components/ui/button";
 const ProductCard = ({ product }) => {
   return (
     <div
-      className="border product-list-thumbnail shadow "
+      className="border product-list-thumbnail shadow  "
       style={{ position: "relative" }}
     >
       <NavLink

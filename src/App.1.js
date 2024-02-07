@@ -1,11 +1,6 @@
 import Navigation from "./component/Navigation";
 import Homepage from "./pages/Homepage";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  HashRouter,
-} from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 import ProductListPage from "./pages/ProductListPage";
 import Login from "./pages/Login";
 import ProductPage from "./pages/ProductPage";
@@ -14,7 +9,7 @@ import AppContext from "./context/AppContext";
 import { useEffect, useState } from "react";
 import ContactUs from "./component/ContactUs";
 
-function App() {
+export function App() {
   const [contextValues, setContextValues] = useState({
     userDetails: {},
     cart: [],
@@ -33,7 +28,7 @@ function App() {
     <AppContext.Provider value={{ contextValues, setContextValues }}>
       <>
         <HashRouter>
-          {/* <Navigation key={localStorage.getItem("isLoggedIn")} />/ */}
+          <Navigation key={localStorage.getItem("isLoggedIn")} />
           {/* <div style={{ marginTop: "72px" }}></div> */}
           <Routes>
             <Route path="/" element={<Homepage />} />
@@ -49,5 +44,3 @@ function App() {
     </AppContext.Provider>
   );
 }
-
-export default App;

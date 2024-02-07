@@ -3,7 +3,10 @@ import React from "react";
 
 const CartProduct = ({ productId }) => {
   return (
-    <div style={{ padding: "10px", display: "flex", alignItems: "end" }}>
+    <div
+      style={{ padding: "10px", display: "flex", alignItems: "end" }}
+      className=" "
+    >
       <img
         style={{ width: "100px" }}
         src={assets.productListData[productId - 1].imgSrc}

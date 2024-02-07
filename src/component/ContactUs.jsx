@@ -19,7 +19,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="flex justify-center mt-32">
+    <div className="flex justify-center mt-32  ">
       <div className="w-[400px] mx-5">
         <h2 className="text-2xl mb-10">Contact Us</h2>
         <form onSubmit={handleSubmit}>
