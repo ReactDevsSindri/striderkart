@@ -1,8 +1,7 @@
 import "./Navigation.css";
 import Images from "../assets";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "../components/ui/button";
 import {
   Sheet,
   SheetClose,
@@ -12,19 +11,19 @@ import {
 } from "../components/ui/sheet";
 import { ScrollArea } from "../components/ui/scroll-area";
 import { Separator } from "../components/ui/separator";
+import { Switch } from "../components/ui/switch";
+import { Button } from "../components/ui/button";
 
 import { ShoppingBasket, LogOut, MoonStarIcon } from "lucide-react";
-import CartProduct from "./CartProduct";
-import AppContext from "../context/AppContext";
-import assets from "../assets";
 import { HamburgerMenuIcon, SunIcon } from "@radix-ui/react-icons";
-import { Switch } from "../components/ui/switch";
+import AppContext from "../context/AppContext";
 import ThemeContext from "../context/ThemeContext";
+import CartProduct from "./CartProduct";
+import assets from "../assets";
 
 const Navigation = () => {
   const appContext = useContext(AppContext);
   const themData = useContext(ThemeContext);
-  console.log(appContext);
   function calculateTotal() {
     const priceArry = appContext.contextValues.cart.map(
       (productId) => assets.productListData[productId - 1].price
@@ -33,33 +32,39 @@ const Navigation = () => {
     const Total = priceArry.reduce((a, b) => a + b, 0);
     return Total;
   }
-  console.log(themData);
   const handleThemeSwithch = (e) => {
     themData.setThemeValue({ currentMode: e ? "dark" : "light" });
+    const root=window.document.documentElement
+    e ? root.classList.add("dark") : root.classList.remove('dark')
+    
   };
+
+  const menuItems=[
+    {to:'/productlistpage',label:'Products'},
+    {to:'/aboutus',label:'About Us'},
+    {to:'/contactus',label:'Contact Us'},
+    {to:'/productlistpage',label:'asjd'},
+  ]
 
   return (
     <div
-      className={`navbar z-10 flex  justify-around ${
-        themData.themeValue.currentMode === "dark"
-          ? "bg-slate-800"
-          : "bg-slate-300"
-      }`}
+      className={`navbar z-10 flex  justify-around bg-slate-300 dark:bg-slate-700`}
     >
-      <div className="w-1/2 flex justify-start">
+      <div className="w-1/2 md:w-48 flex justify-start">
         <NavLink to="/" className="w-2/3">
           <img src={Images.BrandLogo} alt="logo" />
         </NavLink>
       </div>
 
       <ul
-        className="hidden md:flex ml-10 lg:ml-20"
+        className="hidden md:flex justify-around ml-10 lg:ml-20 w-1/3 dark:text-white"
         style={{ fontSize: "18px", fontWeight: "bold" }}
       >
-        <li href="#">Menu</li>
-        <li href="#">Products</li>
-        <li href="#">About</li>
-        <li href="#">Contact</li>
+        {menuItems.map(menuItem=><li>
+                <NavLink to={menuItem.to} className={"w-28"}>
+                  {menuItem.label}
+                </NavLink>
+              </li>)}
         {appContext.contextValues.userDetails.isLoggedIn ? (
           <Button
             onClick={() =>
@@ -84,31 +89,18 @@ const Navigation = () => {
               <HamburgerMenuIcon className="h-4" />
             </Button>
           </SheetTrigger>
-          <SheetContent>
-            <ul>
-              <li className="my-3">
-                <NavLink to="/productlistpage">
-                  <SheetClose>Products</SheetClose>
+          <SheetContent side="left" className="dark:text-white">
+            <ul className="space-y-5">
+              {menuItems.map(menuItem=><li className="my-3">
+                <NavLink to={menuItem.to}>
+                  <SheetClose>{menuItem.label}</SheetClose>
                 </NavLink>
-              </li>
-              <Separator />
-              <li className="my-3">
-                <NavLink to="/">
-                  <SheetClose>About Us</SheetClose>
-                </NavLink>
-              </li>
-              <Separator />
-              <li className="my-3">
-                <NavLink to="/contactus">
-                  <SheetClose>Contact Us</SheetClose>
-                </NavLink>
-              </li>
-              <Separator />
+                <Separator className="mt-3"/>
+              </li>)}
               <li className="my-3">
                 {appContext.contextValues.userDetails.isLoggedIn ? (
                   <Button
                     onClick={() => {
-                      console.log("logout button onClick called");
                       appContext.setContextValues({
                         ...appContext.contextValues,
                         userDetails: { isLoggedIn: false },
@@ -117,8 +109,8 @@ const Navigation = () => {
                     }}
                   >
                     <SheetClose>
-                      Logout <LogOut className="ml" />{" "}
-                    </SheetClose>
+                      Logout     
+                    </SheetClose>    <LogOut className="ml" />
                   </Button>
                 ) : (
                   <NavLink to="/login">
@@ -173,14 +165,13 @@ const Navigation = () => {
           </SheetFooter>
         </SheetContent>
       </Sheet>
-      <div className="flex items-center space-x-2">
-        <SunIcon />
+      <div className="flex items-center space-x-2 dark:text-white ">
+        <SunIcon/>
 
-        <Switch
+        <Switch className="dark:text-white"
           checked={themData.themeValue.currentMode === "dark"}
           onCheckedChange={(e) => handleThemeSwithch(e)}
-        />
-
+          />
         <MoonStarIcon />
       </div>
     </div>

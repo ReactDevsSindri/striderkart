@@ -17,7 +17,6 @@ const Login = () => {
   const appContext = useContext(AppContext);
   const [loginCred, setLoginCred] = useState({ email: "", password: "" });
   useEffect(() => {
-    console.log(loginCred);
   }, [loginCred]);
   const navigate = useNavigate();
   const usersInDb = [{ email: "example@gmail.com", password: "1234" }];
@@ -34,8 +33,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center">
-      <Card className="w-[400px] mt-32">
+    <div className=" dark:bg-slate-800 h-screen pt-32">
+      <Card className="w-[400px] mx-auto">
         <CardHeader className=" ">
           <CardTitle className=" ">Login</CardTitle>
           <CardDescription>Enter your login credentials.</CardDescription>
