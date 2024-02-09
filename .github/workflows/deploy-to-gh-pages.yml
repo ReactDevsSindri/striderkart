@@ -1,29 +1,35 @@
-name: Github Pages Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - "master"
+      - master
 
 jobs:
-  build:
+  deploy:
+    name: Deploy Application
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.10.0]
-    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Install and build
-        run: npm install && npm run build
-      
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.    
-          token: ${{ secrets.ACCESS_TOKEN }} 
-              
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build application
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.DEPLOY_KEY }}
+          publish_dir: ./build
+          publish_branch: gh-pages
+
+      # Optionally, you can add notification steps to alert about the deployment status.

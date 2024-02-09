@@ -1,6 +1,5 @@
 import "./Navigation.css";
-import Images from "../assets";
-import { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Sheet,
@@ -13,46 +12,46 @@ import { ScrollArea } from "../components/ui/scroll-area";
 import { Separator } from "../components/ui/separator";
 import { Switch } from "../components/ui/switch";
 import { Button } from "../components/ui/button";
-
 import { ShoppingBasket, LogOut, MoonStarIcon } from "lucide-react";
 import { HamburgerMenuIcon, SunIcon } from "@radix-ui/react-icons";
 import AppContext from "../context/AppContext";
 import ThemeContext from "../context/ThemeContext";
-import CartProduct from "./CartProduct";
-import assets from "../assets";
+import Images from "../assets";
 
 const Navigation = () => {
   const appContext = useContext(AppContext);
-  const themData = useContext(ThemeContext);
+  const themeData = useContext(ThemeContext);
+
   function calculateTotal() {
-    const priceArry = appContext.contextValues.cart.map(
-      (productId) => assets.productListData[productId - 1].price
+    return appContext.contextValues.cart.reduce(
+      (total, productId) => total + assets.productListData[productId - 1].price,
+      0
     );
-    // [50,60,70]
-    const Total = priceArry.reduce((a, b) => a + b, 0);
-    return Total;
   }
-  const handleThemeSwithch = (e) => {
-    themData.setThemeValue({ currentMode: e ? "dark" : "light" });
-    const root=window.document.documentElement
-    e ? root.classList.add("dark") : root.classList.remove('dark')
-    
+
+  const handleThemeSwitch = (isChecked) => {
+    themeData.setThemeValue({ currentMode: isChecked ? "dark" : "light" });
+    const root = window.document.documentElement;
+    isChecked ? root.classList.add("dark") : root.classList.remove("dark");
   };
 
-  const menuItems=[
-    {to:'/productlistpage',label:'Products'},
-    {to:'/aboutus',label:'About Us'},
-    {to:'/contactus',label:'Contact Us'},
-    {to:'/productlistpage',label:'asjd'},
-  ]
+  const menuItems = [
+    { to: "/productlistpage", label: "Products" },
+    { to: "/aboutus", label: "About Us" },
+    { to: "/contactus", label: "Contact Us" },
+  ];
 
   return (
     <div
-      className={`navbar z-10 flex  justify-around bg-slate-300 dark:bg-slate-700`}
+      className={`navbar z-10 flex justify-around bg-slate-300 dark:bg-slate-700`}
     >
       <div className="w-1/2 md:w-48 flex justify-start">
         <NavLink to="/" className="w-2/3">
-          <img src={Images.BrandLogo} alt="logo" />
+          <img
+            className={`dark:filter dark:invert`}
+            src={Images.BrandLogo}
+            alt="logo"
+          />
         </NavLink>
       </div>
 
@@ -60,11 +59,13 @@ const Navigation = () => {
         className="hidden md:flex justify-around ml-10 lg:ml-20 w-1/3 dark:text-white"
         style={{ fontSize: "18px", fontWeight: "bold" }}
       >
-        {menuItems.map(menuItem=><li>
-                <NavLink to={menuItem.to} className={"w-28"}>
-                  {menuItem.label}
-                </NavLink>
-              </li>)}
+        {menuItems.map((menuItem) => (
+          <li key={menuItem.to}>
+            <NavLink to={menuItem.to} className={"w-28"}>
+              {menuItem.label}
+            </NavLink>
+          </li>
+        ))}
         {appContext.contextValues.userDetails.isLoggedIn ? (
           <Button
             onClick={() =>
@@ -82,6 +83,7 @@ const Navigation = () => {
           </NavLink>
         )}
       </ul>
+
       <div className="order-first md:hidden">
         <Sheet>
           <SheetTrigger asChild>
@@ -91,26 +93,25 @@ const Navigation = () => {
           </SheetTrigger>
           <SheetContent side="left" className="dark:text-white">
             <ul className="space-y-5">
-              {menuItems.map(menuItem=><li className="my-3">
-                <NavLink to={menuItem.to}>
-                  <SheetClose>{menuItem.label}</SheetClose>
-                </NavLink>
-                <Separator className="mt-3"/>
-              </li>)}
+              {menuItems.map((menuItem) => (
+                <li key={menuItem.to + "drawer"} className="my-3">
+                  <NavLink to={menuItem.to}>
+                    <SheetClose>{menuItem.label}</SheetClose>
+                  </NavLink>
+                  <Separator className="mt-3" />
+                </li>
+              ))}
               <li className="my-3">
                 {appContext.contextValues.userDetails.isLoggedIn ? (
                   <Button
-                    onClick={() => {
+                    onClick={() =>
                       appContext.setContextValues({
                         ...appContext.contextValues,
                         userDetails: { isLoggedIn: false },
-                      });
-                      localStorage.removeItem("isLoggedIn");
-                    }}
+                      })
+                    }
                   >
-                    <SheetClose>
-                      Logout     
-                    </SheetClose>    <LogOut className="ml" />
+                    <SheetClose>Logout</SheetClose> <LogOut className="ml" />
                   </Button>
                 ) : (
                   <NavLink to="/login">
@@ -121,12 +122,13 @@ const Navigation = () => {
                 )}
               </li>
             </ul>
-            <SheetFooter className="flex flex-row justify-center absolute bottom-3 left-0  w-full ">
+            <SheetFooter className="flex flex-row justify-center absolute bottom-3 left-0 w-full">
               <p>Copyright @ 2024</p>
             </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>
+
       <Sheet>
         <SheetTrigger asChild>
           {appContext.contextValues.userDetails.isLoggedIn && (
@@ -138,11 +140,11 @@ const Navigation = () => {
         </SheetTrigger>
         <SheetContent>
           <ScrollArea className="h-4/5">
-            {appContext.contextValues.cart.map((ci) => (
-              <>
-                <CartProduct productId={ci} />
+            {appContext.contextValues.cart.map((productId) => (
+              <React.Fragment key={productId}>
+                <CartProduct productId={productId} />
                 <Separator />
-              </>
+              </React.Fragment>
             ))}
           </ScrollArea>
           <SheetFooter>
@@ -165,13 +167,14 @@ const Navigation = () => {
           </SheetFooter>
         </SheetContent>
       </Sheet>
-      <div className="flex items-center space-x-2 dark:text-white ">
-        <SunIcon/>
 
-        <Switch className="dark:text-white"
-          checked={themData.themeValue.currentMode === "dark"}
-          onCheckedChange={(e) => handleThemeSwithch(e)}
-          />
+      <div className="flex items-center space-x-2 dark:text-white ">
+        <SunIcon />
+        <Switch
+          className="dark:text-white"
+          checked={themeData.themeValue.currentMode === "dark"}
+          onCheckedChange={(isChecked) => handleThemeSwitch(isChecked)}
+        />
         <MoonStarIcon />
       </div>
     </div>
