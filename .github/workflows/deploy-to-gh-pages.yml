@@ -31,5 +31,3 @@ jobs:
           github_token: ${{ secrets.DEPLOY_KEY }}
           publish_dir: ./build
           publish_branch: gh-pages
-
-      # Optionally, you can add notification steps to alert about the deployment status.
