@@ -65,76 +65,74 @@ const ProductPage = () => {
               onMouseOver={() => setImg(Images.Shoe1)}
             ></img>
             <img
-               className="size-20 mx-2"
+              className="size-20 mx-2"
               src={Images.Shoe1a}
               alt="Nike Blue"
               onMouseOver={() => setImg(Images.Shoe1a)}
             ></img>
             <img
-               className="size-20 mx-2"
+              className="size-20 mx-2"
               src={Images.Shoe1b}
               alt="Nike Blue"
               onMouseOver={() => setImg(Images.Shoe1b)}
             ></img>
           </div>
-          
         </div>
         <div className="w-screen p-2">
-            <h1 className="text-xl">
-              {assets.productListData[productId - 1].name}
-            </h1>
+          <h1 className="text-xl">
+            {assets.productListData[productId - 1].name}
+          </h1>
 
-            <div>
-              <h4 className="text-lime-500">Special Price</h4>
-              <h3>
-                ₹{assets.productListData[productId - 1].price}
-                <span className="line-through mx-2 text-slate-400 ">₹5000</span>
-                <span className="text-xs text-red-400">Offer Of the Year</span>
-              </h3>
-            </div>
-           
-            <div className="my-3">
+          <div>
+            <h4 className="text-lime-500">Special Price</h4>
+            <h3>
+              ₹{assets.productListData[productId - 1].price}
+              <span className="line-through mx-2 text-slate-400 ">₹5000</span>
+              <span className="text-xs text-red-400">Offer Of the Year</span>
+            </h3>
+          </div>
+
+          <div className="my-3">
             <h1 className="text-xs my-2">
               Size = <span>{size}</span>
             </h1>
-              <Button
-                variant={size == 6 ? "" : "outline"}
-                className="mx-1"
-                onClick={() => {
-                  setSize(6);
-                }}
-              >
-                6
-              </Button>
-              <Button
-                variant={size == 7 ? "" : "outline"}
-                className="mx-1"
-                onClick={() => {
-                  setSize(7);
-                }}
-              >
-                7
-              </Button>
-              <Button
-                variant={size == 8 ? "" : "outline"}
-                className="mx-1"
-                onClick={() => {
-                  setSize(8);
-                }}
-              >
-                8
-              </Button>
-              <Button
-                variant={size == 9 ? "" : "outline"}
-                onClick={() => {
-                  setSize(9);
-                }}
-              >
-                9
-              </Button>
-            </div>
-            <div className="flex  w-full my-5">
-
+            <Button
+              variant={size == 6 ? "" : "outline"}
+              className="mx-1"
+              onClick={() => {
+                setSize(6);
+              }}
+            >
+              6
+            </Button>
+            <Button
+              variant={size == 7 ? "" : "outline"}
+              className="mx-1"
+              onClick={() => {
+                setSize(7);
+              }}
+            >
+              7
+            </Button>
+            <Button
+              variant={size == 8 ? "" : "outline"}
+              className="mx-1"
+              onClick={() => {
+                setSize(8);
+              }}
+            >
+              8
+            </Button>
+            <Button
+              variant={size == 9 ? "" : "outline"}
+              onClick={() => {
+                setSize(9);
+              }}
+            >
+              9
+            </Button>
+          </div>
+          <div className="flex  w-full my-5">
             <Button
               className="mr-2 w-36"
               onClick={() => {
@@ -148,7 +146,7 @@ const ProductPage = () => {
                   removeFromCart();
                 }
               }}
-              >
+            >
               {cart ? "Add to Cart" : "Remove from cart"}
               {cart}
             </Button>
@@ -156,7 +154,7 @@ const ProductPage = () => {
             <Button className="bg-slate-300 text-black hover:text-white ml-2 w-36">
               Buy Now
             </Button>
-              </div>
+          </div>
         </div>
       </div>
     </>

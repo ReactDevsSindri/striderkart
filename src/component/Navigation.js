@@ -16,7 +16,8 @@ import { ShoppingBasket, LogOut, MoonStarIcon } from "lucide-react";
 import { HamburgerMenuIcon, SunIcon } from "@radix-ui/react-icons";
 import AppContext from "../context/AppContext";
 import ThemeContext from "../context/ThemeContext";
-import Images from "../assets";
+import assets from "../assets";
+import CartProduct from "./CartProduct";
 
 const Navigation = () => {
   const appContext = useContext(AppContext);
@@ -49,7 +50,7 @@ const Navigation = () => {
         <NavLink to="/" className="w-2/3">
           <img
             className={`dark:filter dark:invert`}
-            src={Images.BrandLogo}
+            src={assets.BrandLogo}
             alt="logo"
           />
         </NavLink>

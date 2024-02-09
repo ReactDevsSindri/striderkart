@@ -14,6 +14,7 @@ import AppContext from "./context/AppContext";
 import { useEffect, useState } from "react";
 import ContactUs from "./component/ContactUs";
 import ThemeContext from "./context/ThemeContext";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   const [contextValues, setContextValues] = useState({
@@ -33,25 +34,28 @@ function App() {
   }, []);
   return (
     <div className="dark:text-white">
-
-    <ThemeContext.Provider value={{ themeValue, setThemeValue }}>
-      <AppContext.Provider value={{ contextValues, setContextValues }}>
-        <>
-          <HashRouter>
-            <Navigation key={localStorage.getItem("isLoggedIn")} />
-            <div style={{ marginTop: "72px" }}></div>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/productlistpage" element={<ProductListPage />} />
-              <Route path="/productpage/:productId" element={<ProductPage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/contactus" element={<ContactUs />} />
-            </Routes>
-            <Toaster />
-          </HashRouter>
-        </>
-      </AppContext.Provider>
-    </ThemeContext.Provider>
+      <ThemeContext.Provider value={{ themeValue, setThemeValue }}>
+        <AppContext.Provider value={{ contextValues, setContextValues }}>
+          <>
+            <HashRouter>
+              <Navigation key={localStorage.getItem("isLoggedIn")} />
+              <div style={{ marginTop: "72px" }}></div>
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/productlistpage" element={<ProductListPage />} />
+                <Route
+                  path="/productpage/:productId"
+                  element={<ProductPage />}
+                />
+                <Route path="/login" element={<Login />} />
+                <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+              </Routes>
+              <Toaster />
+            </HashRouter>
+          </>
+        </AppContext.Provider>
+      </ThemeContext.Provider>
     </div>
   );
 }
