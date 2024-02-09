@@ -32,12 +32,14 @@ function App() {
     }
   }, []);
   return (
+    <div className="dark:text-white">
+
     <ThemeContext.Provider value={{ themeValue, setThemeValue }}>
       <AppContext.Provider value={{ contextValues, setContextValues }}>
         <>
           <HashRouter>
             <Navigation key={localStorage.getItem("isLoggedIn")} />
-            {/* <div style={{ marginTop: "72px" }}></div> */}
+            <div style={{ marginTop: "72px" }}></div>
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="/productlistpage" element={<ProductListPage />} />
@@ -50,6 +52,7 @@ function App() {
         </>
       </AppContext.Provider>
     </ThemeContext.Provider>
+    </div>
   );
 }
 

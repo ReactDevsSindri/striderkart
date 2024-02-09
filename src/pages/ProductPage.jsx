@@ -15,7 +15,6 @@ const ProductPage = () => {
   let [Products, setProducts] = useState([]);
   let [size, setSize] = useState(6);
   const { toast } = useToast();
-  // const btnName =;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,7 +28,6 @@ const ProductPage = () => {
 
     fetchData();
   }, []);
-  console.log(Products);
   function addItemToCart() {
     if (appContext.contextValues.cart.find((ci) => ci === productId)) {
       toast({
@@ -52,34 +50,36 @@ const ProductPage = () => {
 
   return (
     <>
-      <div className="h-screen grid grid-cols-4  ">
-        <div className="col-span-3 p-3">
+      <div className="h-screen flex flex-col md:grid md:grid-cols-4   dark:bg-slate-800 dark:text-white">
+        <div className="md:col-span-3  flex flex-col justify-start items-center h-screen">
           <img
-            className="h-1/2"
+            className="w-full md:w-1/3 mb-5"
             src={assets.productListData[productId - 1].imgSrc}
             alt="Nike Blue"
           ></img>
-          <div className="shoe  d-flex justify-content-center md:flex flex-row size-20 ">
+          <div className="flex justify-center mt-5 ">
             <img
-              className="product-thumbnail shadow "
+              className="size-20 mx-2 mx-2"
               src={Images.Shoe1}
               alt="Nike Blue"
               onMouseOver={() => setImg(Images.Shoe1)}
             ></img>
             <img
-              className="product-thumbnail shadow "
+               className="size-20 mx-2"
               src={Images.Shoe1a}
               alt="Nike Blue"
               onMouseOver={() => setImg(Images.Shoe1a)}
             ></img>
             <img
-              className="product-thumbnail shadow "
+               className="size-20 mx-2"
               src={Images.Shoe1b}
               alt="Nike Blue"
               onMouseOver={() => setImg(Images.Shoe1b)}
             ></img>
           </div>
-          <div className="">
+          
+        </div>
+        <div className="w-screen p-2">
             <h1 className="text-xl">
               {assets.productListData[productId - 1].name}
             </h1>
@@ -92,10 +92,11 @@ const ProductPage = () => {
                 <span className="text-xs text-red-400">Offer Of the Year</span>
               </h3>
             </div>
-            <h1 className="text-xs">
+           
+            <div className="my-3">
+            <h1 className="text-xs my-2">
               Size = <span>{size}</span>
             </h1>
-            <div>
               <Button
                 variant={size == 6 ? "" : "outline"}
                 className="mx-1"
@@ -132,8 +133,10 @@ const ProductPage = () => {
                 9
               </Button>
             </div>
+            <div className="flex  w-full my-5">
+
             <Button
-              className="mt-5 mx-1"
+              className="mr-2 w-36"
               onClick={() => {
                 toast({
                   title: "Yahooo Added to Cart",
@@ -145,15 +148,15 @@ const ProductPage = () => {
                   removeFromCart();
                 }
               }}
-            >
+              >
               {cart ? "Add to Cart" : "Remove from cart"}
               {cart}
             </Button>
             {/* <Button onClick={() => removeFromCart()}>Remove From Cart</Button> */}
-            <Button className="bg-slate-300 text-black hover:text-white">
+            <Button className="bg-slate-300 text-black hover:text-white ml-2 w-36">
               Buy Now
             </Button>
-          </div>
+              </div>
         </div>
       </div>
     </>

@@ -5,12 +5,12 @@ import { Button } from "../components/ui/button";
 const ProductCard = ({ product }) => {
   return (
     <div
-      className="border product-list-thumbnail shadow  "
+      className=" product-list-thumbnail shadow dark:shadow-none dark:bg-slate-600 "
       style={{ position: "relative" }}
     >
       <NavLink
         to={`/productpage/${product.productId}`}
-        className="btn btn-success"
+        className=""
       >
         <img src={product.imgSrc} alt="Poduct" />
         <p

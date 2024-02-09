@@ -11,7 +11,6 @@ const ContactUs = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Here you can implement your logic to handle form submission, like sending a request to a server or displaying a confirmation message
-    console.log("Form submitted:", { name, email, message });
     // Clear form fields
     setName("");
     setEmail("");

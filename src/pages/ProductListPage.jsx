@@ -21,10 +21,9 @@ const ProductListPage = () => {
 
     fetchData();
   }, []);
-  console.log(Products);
   return (
     <>
-      <div className="flex p-5 flex-wrap justify-center">
+      <div className="flex p-5 flex-wrap justify-center bg-slate-300 dark:bg-slate-800 h-screen">
         {Assets.productListData.map((product) => (
           <div className="mx-5">
             <ProductCard product={product} />
