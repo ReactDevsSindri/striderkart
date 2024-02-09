@@ -43,12 +43,6 @@
     "deploy": "gh-pages -d build",
     "prepare": "husky"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run test",
-      "pre-commit": "npm run lint"
-    }
-  },
   "browserslist": {
     "production": [
       ">0.2%",
