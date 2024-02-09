@@ -9,7 +9,7 @@ Object {
         class="dark:text-white"
       >
         <div
-          class="navbar z-10 flex  justify-around bg-slate-300 dark:bg-slate-700"
+          class="navbar z-10 flex justify-around bg-slate-300 dark:bg-slate-700"
         >
           <div
             class="w-1/2 md:w-48 flex justify-start"
@@ -21,6 +21,7 @@ Object {
             >
               <img
                 alt="logo"
+                class="dark:filter dark:invert"
                 src="brand_logo.png"
               />
             </a>
@@ -208,7 +209,7 @@ Object {
       class="dark:text-white"
     >
       <div
-        class="navbar z-10 flex  justify-around bg-slate-300 dark:bg-slate-700"
+        class="navbar z-10 flex justify-around bg-slate-300 dark:bg-slate-700"
       >
         <div
           class="w-1/2 md:w-48 flex justify-start"
@@ -220,6 +221,7 @@ Object {
           >
             <img
               alt="logo"
+              class="dark:filter dark:invert"
               src="brand_logo.png"
             />
           </a>

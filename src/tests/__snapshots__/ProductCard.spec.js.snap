@@ -35,6 +35,7 @@ Object {
           >
             Details
           </button>
+           
         </a>
       </div>
     </div>
@@ -70,6 +71,7 @@ Object {
         >
           Details
         </button>
+         
       </a>
     </div>
   </div>,
