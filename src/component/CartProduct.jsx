@@ -5,7 +5,7 @@ const CartProduct = ({ productId }) => {
   return (
     <div
       style={{ padding: "10px", display: "flex", alignItems: "end" }}
-      className=" "
+      className="dark:text-white"
     >
       <img
         style={{ width: "100px" }}

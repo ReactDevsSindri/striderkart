@@ -16,17 +16,25 @@ import { ShoppingBasket, LogOut, MoonStarIcon } from "lucide-react";
 import { HamburgerMenuIcon, SunIcon } from "@radix-ui/react-icons";
 import AppContext from "../context/AppContext";
 import ThemeContext from "../context/ThemeContext";
-import Images from "../assets";
+// import Images from "../assets";
+import assets from "../assets";
+import CartProduct from "./CartProduct";
+import CartContext from "../context/CartContext";
 
 const Navigation = () => {
   const appContext = useContext(AppContext);
   const themeData = useContext(ThemeContext);
+  const cartContext = useContext(CartContext);
 
   function calculateTotal() {
-    return appContext.contextValues.cart.reduce(
-      (total, productId) => total + assets.productListData[productId - 1].price,
-      0
-    );
+    if (cartContext.cartValue.length === 0) return 0;
+    console.log(cartContext.cartValue);
+    return cartContext.cartValue.reduce((total, product) => {
+      const selectedSizePrice = product.sizes.find(
+        (sizeObj) => sizeObj.size === product.sizeSlected
+      ).offerPrice;
+      total + selectedSizePrice;
+    }, 0);
   }
 
   const handleThemeSwitch = (isChecked) => {
@@ -39,6 +47,7 @@ const Navigation = () => {
     { to: "/productlistpage", label: "Products" },
     { to: "/aboutus", label: "About Us" },
     { to: "/contactus", label: "Contact Us" },
+    { to: "/addproduct", label: "Add Product" },
   ];
 
   return (
@@ -49,7 +58,7 @@ const Navigation = () => {
         <NavLink to="/" className="w-2/3">
           <img
             className={`dark:filter dark:invert`}
-            src={Images.BrandLogo}
+            src={assets.BrandLogo}
             alt="logo"
           />
         </NavLink>
@@ -134,13 +143,13 @@ const Navigation = () => {
           {appContext.contextValues.userDetails.isLoggedIn && (
             <Button size="icon">
               <ShoppingBasket className=" " />
-              {appContext.contextValues.cart.length}
+              {cartContext.cartValue.length}
             </Button>
           )}
         </SheetTrigger>
         <SheetContent>
           <ScrollArea className="h-4/5">
-            {appContext.contextValues.cart.map((productId) => (
+            {cartContext.cartValue.map((productId) => (
               <React.Fragment key={productId}>
                 <CartProduct productId={productId} />
                 <Separator />
