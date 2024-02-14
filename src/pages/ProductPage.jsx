@@ -21,7 +21,7 @@ const ProductPage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://e03d-103-159-35-52.ngrok-free.app/products/${productId}`
+          `http://13.49.241.47:5000/products/${productId}`
         );
         const data = await response.json();
         setProduct(data);
