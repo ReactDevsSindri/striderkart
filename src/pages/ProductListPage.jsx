@@ -11,9 +11,7 @@ const ProductListPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "http://13.49.241.47:5000/products"
-        ); // Replace '/path/to/products.json' with the actual path to your JSON file
+        const response = await fetch("http://13.49.241.47:5000/products"); 
         const data = await response.json();
         console.log(data);
         setProducts(data);

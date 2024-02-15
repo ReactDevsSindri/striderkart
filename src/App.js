@@ -16,13 +16,13 @@ import ContactUs from "./component/ContactUs";
 import ThemeContext from "./context/ThemeContext";
 import AddProductPage from "./pages/AddProductPage";
 import CartContext from "./context/CartContext";
+import Checkout from "./component/Checkout";
 
 function App() {
   const [contextValues, setContextValues] = useState({
     userDetails: {},
-    
   });
-   const [cartValue,setCartValue] = useState ([])
+  const [cartValue, setCartValue] = useState([]);
   const [themeValue, setThemeValue] = useState({ currentMode: "light" });
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === "1") {
@@ -36,29 +36,34 @@ function App() {
   }, []);
   return (
     <div className="dark:text-white">
-
-    <ThemeContext.Provider value={{ themeValue, setThemeValue }}>
-      <AppContext.Provider value={{ contextValues, setContextValues }}>
-        <CartContext.Provider value={{cartValue, setCartValue}}>
-
-        <>
-          <HashRouter>
-            <Navigation key={localStorage.getItem("isLoggedIn")} />
-            <div style={{ marginTop: "72px" }}></div>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/productlistpage" element={<ProductListPage />} />
-              <Route path="/productpage/:productId" element={<ProductPage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/addproduct" element={<AddProductPage/>} />
-            </Routes>
-            <Toaster />
-          </HashRouter>
-        </>
-        </CartContext.Provider>
-      </AppContext.Provider>
-    </ThemeContext.Provider>
+      <ThemeContext.Provider value={{ themeValue, setThemeValue }}>
+        <AppContext.Provider value={{ contextValues, setContextValues }}>
+          <CartContext.Provider value={{ cartValue, setCartValue }}>
+            <>
+              <HashRouter>
+                <Navigation key={localStorage.getItem("isLoggedIn")} />
+                <div style={{ marginTop: "72px" }}></div>
+                <Routes>
+                  <Route path="/" element={<Homepage />} />
+                  <Route
+                    path="/productlistpage"
+                    element={<ProductListPage />}
+                  />
+                  <Route
+                    path="/productpage/:productId"
+                    element={<ProductPage />}
+                  />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/contactus" element={<ContactUs />} />
+                  <Route path="/addproduct" element={<AddProductPage />} />
+                  <Route path="/checkout" element={<Checkout />} />
+                </Routes>
+                <Toaster />
+              </HashRouter>
+            </>
+          </CartContext.Provider>
+        </AppContext.Provider>
+      </ThemeContext.Provider>
     </div>
   );
 }

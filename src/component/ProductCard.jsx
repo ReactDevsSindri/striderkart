@@ -23,9 +23,10 @@ const ProductCard = ({ product }) => {
         <p className="m-0 mb-2 ps-2" style={{ fontSize: "12px" }}>
           2 colors
         </p>
+
         <Button style={{ position: "absolute", right: 5, bottom: 5 }}>
           Details
-        </Button>{" "}
+        </Button>
         {/* <img src={product.imgSrc} /> */}
       </NavLink>
     </div>

@@ -20,6 +20,7 @@ import ThemeContext from "../context/ThemeContext";
 import assets from "../assets";
 import CartProduct from "./CartProduct";
 import CartContext from "../context/CartContext";
+import * as lodash from "lodash";
 
 const Navigation = () => {
   const appContext = useContext(AppContext);
@@ -29,12 +30,13 @@ const Navigation = () => {
   function calculateTotal() {
     if (cartContext.cartValue.length === 0) return 0;
     console.log(cartContext.cartValue);
-    return cartContext.cartValue.reduce((total, product) => {
+    const priceArrayOfItemsInCart = cartContext.cartValue.map((product) => {
       const selectedSizePrice = product.sizes.find(
         (sizeObj) => sizeObj.size === product.sizeSlected
       ).offerPrice;
-      total + selectedSizePrice;
-    }, 0);
+      return selectedSizePrice;
+    });
+    return lodash.sum(priceArrayOfItemsInCart);
   }
 
   const handleThemeSwitch = (isChecked) => {
@@ -149,9 +151,9 @@ const Navigation = () => {
         </SheetTrigger>
         <SheetContent>
           <ScrollArea className="h-4/5">
-            {cartContext.cartValue.map((productId) => (
-              <React.Fragment key={productId}>
-                <CartProduct productId={productId} />
+            {cartContext.cartValue.map((product) => (
+              <React.Fragment key={product}>
+                <CartProduct product={product} />
                 <Separator />
               </React.Fragment>
             ))}
