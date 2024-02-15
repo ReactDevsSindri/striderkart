@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Images from "../assets/index";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import assets from "../assets/index";
 import { Button } from "../components/ui/button";
 import { ToastAction } from "../components/ui/toast";
@@ -21,7 +21,7 @@ const ProductPage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://e03d-103-159-35-52.ngrok-free.app/products/${productId}`
+          `http://13.49.241.47:5000/products/${productId}`
         );
         const data = await response.json();
         setProduct(data);
@@ -132,9 +132,12 @@ const ProductPage = () => {
               {/* {cart} */}
             </Button>
             {/* <Button onClick={() => removeFromCart()}>Remove From Cart</Button> */}
-            <Button className="bg-slate-300 text-black hover:text-white ml-2 w-36">
-              Buy Now
-            </Button>
+
+            <NavLink to="/checkout" className="w-2/3">
+              <Button className="bg-slate-300 text-black hover:text-white ml-2 w-36">
+                Buy Now
+              </Button>
+            </NavLink>
           </div>
         </div>
       </div>
