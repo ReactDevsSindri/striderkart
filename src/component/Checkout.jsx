@@ -2,6 +2,7 @@
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { useState } from "react";
+import CartProduct from "./CartProduct";
 
 export default function Checkout() {
   const [localAdd, setLocalAdd] = useState();
@@ -21,6 +22,7 @@ export default function Checkout() {
   };
   return (
     <div className="flex justify-center ">
+      <CartProduct />
       <div className="bg-slate-400 mt-10 w-[400px] p-10 border-black rounded-lg shadow-md">
         <form onSubmit={handleSumbit}>
           <h1 className="my-5">

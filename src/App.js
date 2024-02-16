@@ -55,9 +55,9 @@ function App() {
                     element={<ProductPage />}
                   />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/aboutus" element={<AboutUs />} />
                   <Route path="/contactus" element={<ContactUs />} />
                   <Route path="/addproduct" element={<AddProductPage />} />
-                  <Route path="/checkout" element={<Checkout />} />
                 </Routes>
                 <Toaster />
               </HashRouter>
@@ -65,30 +65,6 @@ function App() {
           </CartContext.Provider>
         </AppContext.Provider>
       </ThemeContext.Provider>
-
-    <ThemeContext.Provider value={{ themeValue, setThemeValue }}>
-      <AppContext.Provider value={{ contextValues, setContextValues }}>
-        <CartContext.Provider value={{cartValue, setCartValue}}>
-
-        <>
-          <HashRouter>
-            <Navigation key={localStorage.getItem("isLoggedIn")} />
-            <div style={{ marginTop: "72px" }}></div>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/productlistpage" element={<ProductListPage />} />
-              <Route path="/productpage/:productId" element={<ProductPage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/aboutus" element={<AboutUs/>}/>
-              <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/addproduct" element={<AddProductPage/>} />
-            </Routes>
-            <Toaster />
-          </HashRouter>
-        </>
-        </CartContext.Provider>
-      </AppContext.Provider>
-    </ThemeContext.Provider>
     </div>
   );
 }
