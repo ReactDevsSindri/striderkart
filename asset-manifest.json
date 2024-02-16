@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/striderkart/static/css/main.fe83cc1d.css",
-    "main.js": "/striderkart/static/js/main.946fa9f2.js",
+    "main.js": "/striderkart/static/js/main.393fbdee.js",
     "static/js/787.ef3f9875.chunk.js": "/striderkart/static/js/787.ef3f9875.chunk.js",
     "static/media/hero-image.png": "/striderkart/static/media/hero-image.a6925ff450589eac50e5.png",
     "static/media/Shoe1.png": "/striderkart/static/media/Shoe1.4b4713a3b0d3783841b6.png",
@@ -14,11 +14,11 @@
     "static/media/red-nike-2.jpg": "/striderkart/static/media/red-nike-2.725c011aa7b33701fc1c.jpg",
     "index.html": "/striderkart/index.html",
     "main.fe83cc1d.css.map": "/striderkart/static/css/main.fe83cc1d.css.map",
-    "main.946fa9f2.js.map": "/striderkart/static/js/main.946fa9f2.js.map",
+    "main.393fbdee.js.map": "/striderkart/static/js/main.393fbdee.js.map",
     "787.ef3f9875.chunk.js.map": "/striderkart/static/js/787.ef3f9875.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe83cc1d.css",
-    "static/js/main.946fa9f2.js"
+    "static/js/main.393fbdee.js"
   ]
 }
