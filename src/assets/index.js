@@ -9,6 +9,10 @@ import Cart from "./img/cart.png";
 import RedNike1 from "./img/red-nike-1.jpg";
 import RedNike2 from "./img/red-nike-2.jpg";
 import RedNike3 from "./img/red-nike-3.jpg";
+import Img from "./img/img.jpg";
+import Img1 from "./img/img1.jpg"
+import Img2 from "./img/img2.jpg"
+import Img4 from "./img/img4.jpg"
 
 const productListData = [
   {
@@ -96,4 +100,8 @@ export default {
   RedNike2,
   RedNike3,
   productListData,
+  Img,
+  Img1,
+  Img2,
+  Img4,
 };
