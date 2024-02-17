@@ -11,17 +11,17 @@ Object {
       >
         <a
           class=""
-          href="/productpage/123"
+          href="/productpage/69b3258a-faf1-43af-a32a-41ad4e03b329"
         >
           <img
             alt="Poduct"
-            src="product-image.jpg"
+            src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
           />
           <p
             class="m-0 mt-2 ps-2"
             style="font-size: 14px; font-weight: bold;"
           >
-            Sample Product
+            Shoe1
           </p>
           <p
             class="m-0 mb-2 ps-2"
@@ -35,7 +35,6 @@ Object {
           >
             Details
           </button>
-           
         </a>
       </div>
     </div>
@@ -47,17 +46,17 @@ Object {
     >
       <a
         class=""
-        href="/productpage/123"
+        href="/productpage/69b3258a-faf1-43af-a32a-41ad4e03b329"
       >
         <img
           alt="Poduct"
-          src="product-image.jpg"
+          src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
         />
         <p
           class="m-0 mt-2 ps-2"
           style="font-size: 14px; font-weight: bold;"
         >
-          Sample Product
+          Shoe1
         </p>
         <p
           class="m-0 mb-2 ps-2"
@@ -71,7 +70,6 @@ Object {
         >
           Details
         </button>
-         
       </a>
     </div>
   </div>,

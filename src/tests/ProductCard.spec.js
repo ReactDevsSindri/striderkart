@@ -6,9 +6,21 @@ import renderer from "react-test-renderer";
 
 describe("ProductCard component", () => {
   const product = {
-    productId: "123",
-    imgSrc: "product-image.jpg",
-    name: "Sample Product",
+    _id: "69b3258a-faf1-43af-a32a-41ad4e03b329",
+    productName: "Shoe1",
+    images: [
+      "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg",
+      "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg",
+    ],
+    productDesc: "Great shoe",
+    sizes: [
+      {
+        size: "5",
+        price: 599,
+        _key: "17dd79cacd2a",
+        offerPrice: 499,
+      },
+    ],
   };
 
   it("renders without crashing", () => {

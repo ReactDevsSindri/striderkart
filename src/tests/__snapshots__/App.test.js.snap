@@ -54,6 +54,14 @@ Object {
                 Contact Us
               </a>
             </li>
+            <li>
+              <a
+                class="w-28"
+                href="#/addproduct"
+              >
+                Add Product
+              </a>
+            </li>
             <a
               class=""
               href="#/login"
@@ -252,6 +260,14 @@ Object {
               href="#/contactus"
             >
               Contact Us
+            </a>
+          </li>
+          <li>
+            <a
+              class="w-28"
+              href="#/addproduct"
+            >
+              Add Product
             </a>
           </li>
           <a

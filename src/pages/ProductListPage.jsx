@@ -3,24 +3,23 @@ import Assets from "../assets/index";
 import "./ProductListPage.css";
 import ProductCard from "../component/ProductCard";
 import ThemeContext from "../context/ThemeContext";
+import { createClient, imageUrlBuilder } from "@sanity/client";
+import { SanityConfig } from "../env";
 
 const ProductListPage = () => {
   const themeData = useContext(ThemeContext);
   const darkclass = themeData.themeValue.currentMode === "dark";
   let [products, setProducts] = useState([]);
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://13.49.241.47:5000/products"); 
-        const data = await response.json();
-        console.log(data);
-        setProducts(data);
-      } catch (error) {
+    const client = createClient(SanityConfig);
+    client
+      .fetch('*[_type == "strider-product"]')
+      .then((result) => {
+        setProducts(result);
+      })
+      .catch((error) => {
         console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
+      });
   }, []);
   return (
     <>
