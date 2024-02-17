@@ -8,8 +8,8 @@ import { useToast } from "../components/ui/use-toast";
 import AppContext from "../context/AppContext";
 import CartContext from "../context/CartContext";
 // import { Progress } from "../components/ui/progress";
-import Img1 from "../assets/img/red-nike-1.jpg";
 import { StarFilledIcon } from "@radix-ui/react-icons";
+// import {Img, Img1, Img2, Img4} from "../assets/index";
 
 const ProductPage = () => {
   const appContext = useContext(AppContext);
@@ -174,12 +174,12 @@ const ProductPage = () => {
 <span onClick={()=>{setRate(5);}}><StarFilledIcon className="text-orange-500 size-[20px]"/> </span>
 <h1 className="text-1xl mx-2"> {reviews[rate]}</h1>
 </div>
-{/* <div className="flex flex-row">
-  <img src={Img1} alt="error" />
-  <img src={Img1} alt="error" />
-  <img src={Img1} alt="error" />
-  <img src={Img1} alt="error" />
-</div> */}
+<div className="flex flex-row">
+  <img className="size-20" src={assets.Img1} alt="error" />
+  <img className="size-20" src={assets.Img2} alt="error" />
+  <img className="size-20" src={assets.Img} alt="error" />
+  <img className="size-20" src={assets.Img4} alt="error" />
+</div>
           </div>
         </div>
       </div>
