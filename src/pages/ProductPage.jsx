@@ -7,6 +7,9 @@ import { ToastAction } from "../components/ui/toast";
 import { useToast } from "../components/ui/use-toast";
 import AppContext from "../context/AppContext";
 import CartContext from "../context/CartContext";
+// import { Progress } from "../components/ui/progress";
+import Img1 from "../assets/img/red-nike-1.jpg";
+import { StarFilledIcon } from "@radix-ui/react-icons";
 
 const ProductPage = () => {
   const appContext = useContext(AppContext);
@@ -48,7 +51,7 @@ const ProductPage = () => {
       ]);
       console.log("Toast calling");
       toast({
-        title: "Yahooo Added to Cart",
+        title: "Yohooo Added to Cart",
         description: "Expected Delivery 30 Feb",
       });
       console.log("Toast called");
@@ -65,6 +68,16 @@ const ProductPage = () => {
       });
     }
   }
+
+  const [rate,setRate] = useState(0);
+
+  const reviews = {0:"Kindly rate us in 1 to 5 stars",1:"Oops! We will try to improve.",2:"Okay! We will try to improve.",3:"Thanks! We will try to improve.",4:"Thanks! Hope to see you again.",5:"Thanks! It means a lot."}
+  // const review1= ("Oops! We will try to improve.");
+  // const review2= ("Okay! We will try to improve.");
+  // const review3= ("Thanks! We will try to improve.");
+  // const review4= ("Thanks! Hope to see you again.");
+  // const review5= ("Thanks! It means a lot.");
+  //  const [review, setReview] = useState("Kindly rate us in 1 to 5 stars")
 
   return (
     <>
@@ -138,6 +151,35 @@ const ProductPage = () => {
                 Buy Now
               </Button>
             </NavLink>
+          </div>
+          <div >
+            <h1 className="text-3xl" >
+              Review and ratings
+            </h1>
+            <p className="flex flex-row">
+            <p className="text-4xl">4.3</p> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-9 h-9 stroke-orange-500">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+</svg>
+</span>
+<p className="text-1xl" >
+4,940 ratings and 234 reviews
+</p>
+ </p>
+<div className="flex flex-row">
+
+<span onClick={()=>{setRate(1);}}><StarFilledIcon className="text-orange-500 size-[20px]"/></span>
+<span onClick={()=>{setRate(2);}}><StarFilledIcon className="text-orange-500 size-[20px]"/></span>
+<span onClick={()=>{setRate(3);}}><StarFilledIcon className="text-orange-500 size-[20px]"/></span>
+<span onClick={()=>{setRate(4);}}><StarFilledIcon className="text-orange-500 size-[20px]"/></span>
+<span onClick={()=>{setRate(5);}}><StarFilledIcon className="text-orange-500 size-[20px]"/> </span>
+<h1 className="text-1xl mx-2"> {reviews[rate]}</h1>
+</div>
+{/* <div className="flex flex-row">
+  <img src={Img1} alt="error" />
+  <img src={Img1} alt="error" />
+  <img src={Img1} alt="error" />
+  <img src={Img1} alt="error" />
+</div> */}
           </div>
         </div>
       </div>
