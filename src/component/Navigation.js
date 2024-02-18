@@ -21,6 +21,7 @@ import assets from "../assets";
 import CartProduct from "./CartProduct";
 import CartContext from "../context/CartContext";
 import * as lodash from "lodash";
+import Checkout from "./Checkout";
 
 const Navigation = () => {
   const appContext = useContext(AppContext);
@@ -159,22 +160,20 @@ const Navigation = () => {
             ))}
           </ScrollArea>
           <SheetFooter>
-            <SheetClose asChild>
-              <div
-                className="w-full mt-5 bg-slate-300 p-3 text-white"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  position: "absolute",
-                  bottom: "0",
-                  right: "0",
-                }}
-              >
-                <p>Total :₹{calculateTotal()}</p>
-                <Button>Checkout</Button>
-              </div>
-            </SheetClose>
+            <div
+              className="w-full mt-5 bg-slate-300 p-3 text-white"
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                position: "absolute",
+                bottom: "0",
+                right: "0",
+              }}
+            >
+              <p>Total :₹{calculateTotal()}</p>
+              <Checkout />
+            </div>
           </SheetFooter>
         </SheetContent>
       </Sheet>

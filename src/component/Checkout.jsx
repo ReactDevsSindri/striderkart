@@ -3,6 +3,17 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { useState } from "react";
 import CartProduct from "./CartProduct";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "../components/ui/drawer";
+import { Sheet, SheetContent, SheetTrigger } from "../components/ui/sheet";
 
 export default function Checkout() {
   const [localAdd, setLocalAdd] = useState();
@@ -21,69 +32,76 @@ export default function Checkout() {
     setaddDist("");
   };
   return (
-    <div className="flex justify-center ">
-      <div className="bg-slate-400 mt-10 w-[400px] p-10 border-black rounded-lg shadow-md">
-        <form onSubmit={handleSumbit}>
-          <h1 className="my-5">
-            Address <span className="text-red">*</span>
-          </h1>
-          <div className="flex flex-col">
-            <label htmlFor="locality">Locality</label>
-            <Input
-              placeholder="Enter Your Locality Address"
-              type="text"
-              id="locality"
-              value={localAdd}
-              onChange={(event) => setLocalAdd(event.target.value)}
-              required
-            />
-            <label htmlFor="address1" className="my-2">
-              Address1
-            </label>
-            <Input
-              placeholder="Enter Your Address"
-              type="text"
-              value={add1}
-              onChange={(event) => setAdd1(event.target.value)}
-              required
-            />
-            <label htmlFor="state" className="my-2">
-              State
-            </label>
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button>Checkout</Button>
+      </SheetTrigger>
+      <SheetContent side="right" overlayClassName="bg-transparent">
+        <div className="flex justify-center dark:text-white">
+          <div className="mt-10 w-[400px] p-10">
+            <form onSubmit={handleSumbit}>
+              <h1 className="my-5">
+                Address <span className="text-red">*</span>
+              </h1>
+              <div className="flex flex-col">
+                <label htmlFor="locality">Locality</label>
+                <Input
+                  placeholder="Enter Your Locality Address"
+                  type="text"
+                  id="locality"
+                  value={localAdd}
+                  onChange={(event) => setLocalAdd(event.target.value)}
+                  required
+                />
+                <label htmlFor="address1" className="my-2">
+                  Address1
+                </label>
+                <Input
+                  placeholder="Enter Your Address"
+                  type="text"
+                  value={add1}
+                  onChange={(event) => setAdd1(event.target.value)}
+                  required
+                />
+                <label htmlFor="state" className="my-2">
+                  State
+                </label>
 
-            <Input
-              placeholder="Enter Your State"
-              type="text"
-              value={addState}
-              onChange={(event) => setAddState(event.target.value)}
-              required
-            />
-            <label htmlFor="district" className="my-2">
-              District
-            </label>
-            <Input
-              placeholder="Enter Your District"
-              type="text"
-              value={addDist}
-              onChange={(event) => setaddDist(event.target.value)}
-              required
-            />
-            <label htmlFor="pincode" className="my-2">
-              Pin Code
-            </label>
-            <Input
-              placeholder="Enter Your PIN"
-              type="number"
-              value={addPin}
-              onChange={(event) => setAddPin(event.target.value)}
-              required
-            />
+                <Input
+                  placeholder="Enter Your State"
+                  type="text"
+                  value={addState}
+                  onChange={(event) => setAddState(event.target.value)}
+                  required
+                />
+                <label htmlFor="district" className="my-2">
+                  District
+                </label>
+                <Input
+                  placeholder="Enter Your District"
+                  type="text"
+                  value={addDist}
+                  onChange={(event) => setaddDist(event.target.value)}
+                  required
+                />
+                <label htmlFor="pincode" className="my-2">
+                  Pin Code
+                </label>
+                <Input
+                  placeholder="Enter Your PIN"
+                  type="number"
+                  value={addPin}
+                  onChange={(event) => setAddPin(event.target.value)}
+                  required
+                />
+              </div>
+              <Button type="submit" className="my-2">
+                Proceed To Pay
+              </Button>
+            </form>
           </div>
-          <Button type="submit" className="my-2">
-            Proceed To Pay
-          </Button>
-        </form>
-      </div>
-    </div>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 }
