@@ -6,32 +6,54 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class=" product-list-thumbnail shadow dark:shadow-none dark:bg-slate-600 "
+        class=" product-list-thumbnail shadow dark:shadow-none dark:bg-slate-800 rounded-xl "
         style="position: relative;"
       >
         <a
           class=""
           href="/productpage/69b3258a-faf1-43af-a32a-41ad4e03b329"
         >
-          <img
-            alt="Poduct"
-            src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
-          />
+          <div
+            class="group relative"
+          >
+            <img
+              alt="Poduct"
+              src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
+            />
+            <div
+              class="flex absolute bottom-0 opacity-0  group-hover:opacity-100 transition-opacity"
+            >
+              <img
+                class="size-16 bg-slate-500"
+                src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
+              />
+              <img
+                class="size-16 bg-slate-500"
+                src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
+              />
+              <img
+                class="size-16 bg-slate-500"
+              />
+              <img
+                class="size-16 bg-slate-500"
+              />
+            </div>
+          </div>
           <p
-            class="m-0 mt-2 ps-2"
+            class="m-0 mt-2 ps-3"
             style="font-size: 14px; font-weight: bold;"
           >
             Shoe1
           </p>
           <p
-            class="m-0 mb-2 ps-2"
+            class="m-0 mb-2 ps-3"
             style="font-size: 12px;"
           >
             2 colors
           </p>
           <button
             class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
-            style="position: absolute; right: 5px; bottom: 5px;"
+            style="position: absolute; right: 10px; bottom: 10px;"
           >
             Details
           </button>
@@ -41,32 +63,54 @@ Object {
   </body>,
   "container": <div>
     <div
-      class=" product-list-thumbnail shadow dark:shadow-none dark:bg-slate-600 "
+      class=" product-list-thumbnail shadow dark:shadow-none dark:bg-slate-800 rounded-xl "
       style="position: relative;"
     >
       <a
         class=""
         href="/productpage/69b3258a-faf1-43af-a32a-41ad4e03b329"
       >
-        <img
-          alt="Poduct"
-          src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
-        />
+        <div
+          class="group relative"
+        >
+          <img
+            alt="Poduct"
+            src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
+          />
+          <div
+            class="flex absolute bottom-0 opacity-0  group-hover:opacity-100 transition-opacity"
+          >
+            <img
+              class="size-16 bg-slate-500"
+              src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
+            />
+            <img
+              class="size-16 bg-slate-500"
+              src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/63c77c04dc6448548ccbae880189e107_9366/Galaxy_6_Shoes_Black_GW3848_01_standard.jpg"
+            />
+            <img
+              class="size-16 bg-slate-500"
+            />
+            <img
+              class="size-16 bg-slate-500"
+            />
+          </div>
+        </div>
         <p
-          class="m-0 mt-2 ps-2"
+          class="m-0 mt-2 ps-3"
           style="font-size: 14px; font-weight: bold;"
         >
           Shoe1
         </p>
         <p
-          class="m-0 mb-2 ps-2"
+          class="m-0 mb-2 ps-3"
           style="font-size: 12px;"
         >
           2 colors
         </p>
         <button
           class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
-          style="position: absolute; right: 5px; bottom: 5px;"
+          style="position: absolute; right: 10px; bottom: 10px;"
         >
           Details
         </button>

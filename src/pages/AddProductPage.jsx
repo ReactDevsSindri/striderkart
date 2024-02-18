@@ -24,7 +24,7 @@ const AddProductPage = () => {
   };
 
   return (
-    <div className="flex bg-slate-600 text-white justify-center">
+    <div className="flex bg-slate-700 text-white justify-center">
       <div className="w-[400px] mx-5">
         <h2 className="text-2xl mb-10">Add New Product</h2>
 

@@ -16,8 +16,7 @@ import AppContext from "../context/AppContext";
 const Login = () => {
   const appContext = useContext(AppContext);
   const [loginCred, setLoginCred] = useState({ email: "", password: "" });
-  useEffect(() => {
-  }, [loginCred]);
+  useEffect(() => {}, [loginCred]);
   const navigate = useNavigate();
   const usersInDb = [{ email: "example@gmail.com", password: "1234" }];
   const handleUserLogin = () => {
@@ -33,7 +32,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" dark:bg-slate-800 h-screen pt-32">
+    <div className=" dark:bg-slate-700 h-screen pt-32">
       <Card className="w-[400px] mx-auto">
         <CardHeader className=" ">
           <CardTitle className=" ">Login</CardTitle>
