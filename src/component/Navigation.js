@@ -54,7 +54,7 @@ const Navigation = () => {
 
   return (
     <div
-      className={`navbar z-10 flex justify-around bg-slate-300 dark:bg-slate-700`}
+      className={`navbar z-10 flex justify-around bg-slate-200 dark:bg-slate-800`}
     >
       <div className="w-1/2 md:w-48 flex justify-start">
         <NavLink to="/" className="w-2/3">

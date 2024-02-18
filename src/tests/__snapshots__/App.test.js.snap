@@ -9,7 +9,7 @@ Object {
         class="dark:text-white"
       >
         <div
-          class="navbar z-10 flex justify-around bg-slate-300 dark:bg-slate-700"
+          class="navbar z-10 flex justify-around bg-slate-200 dark:bg-slate-800"
         >
           <div
             class="w-1/2 md:w-48 flex justify-start"
@@ -159,7 +159,7 @@ Object {
           style="margin-top: 72px;"
         />
         <main
-          class=" font-mono flex flex-col-reverse p-5  md:flex-row pt-28 pl-10 dark:bg-slate-800 dark:text-white h-screen"
+          class=" font-mono flex flex-col-reverse p-5  md:flex-row pt-28 pl-10 dark:bg-slate-700 dark:text-white h-screen"
         >
           <div>
             <h1
@@ -217,7 +217,7 @@ Object {
       class="dark:text-white"
     >
       <div
-        class="navbar z-10 flex justify-around bg-slate-300 dark:bg-slate-700"
+        class="navbar z-10 flex justify-around bg-slate-200 dark:bg-slate-800"
       >
         <div
           class="w-1/2 md:w-48 flex justify-start"
@@ -367,7 +367,7 @@ Object {
         style="margin-top: 72px;"
       />
       <main
-        class=" font-mono flex flex-col-reverse p-5  md:flex-row pt-28 pl-10 dark:bg-slate-800 dark:text-white h-screen"
+        class=" font-mono flex flex-col-reverse p-5  md:flex-row pt-28 pl-10 dark:bg-slate-700 dark:text-white h-screen"
       >
         <div>
           <h1

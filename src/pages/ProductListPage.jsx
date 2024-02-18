@@ -23,11 +23,13 @@ const ProductListPage = () => {
   }, []);
   return (
     <>
-      <div className="flex p-5 flex-wrap justify-center bg-slate-300 dark:bg-slate-800 ">
+      <div className="flex p-5 flex-wrap justify-center  dark:bg-slate-700  min-h-[calc(100vh-72px)]">
         {products.map((product) => (
-          <div className="mx-5">
-            <ProductCard product={product} />
-          </div>
+          <>
+            <div className="mx-5">
+              <ProductCard product={product} />
+            </div>
+          </>
         ))}
       </div>
     </>

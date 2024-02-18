@@ -88,8 +88,8 @@ const ProductPage = () => {
 
   return (
     <>
-      <div className="h-screen flex flex-col md:grid md:grid-cols-4   dark:bg-slate-800 dark:text-white">
-        <div className="md:col-span-3  flex flex-col justify-start items-center h-screen">
+      <div className="h-[calc(100vh-72px)]  flex flex-col md:grid md:grid-cols-4   dark:bg-slate-700 dark:text-white">
+        <div className="md:col-span-3  flex flex-col justify-start items-center">
           <img className="w-full md:w-1/3 mb-5" src={img} alt="Nike Blue"></img>
 
           <div className="flex justify-center mt-5 ">
