@@ -58,6 +58,7 @@ function App() {
                   <Route path="/aboutus" element={<AboutUs />} />
                   <Route path="/contactus" element={<ContactUs />} />
                   <Route path="/addproduct" element={<AddProductPage />} />
+                  <Route path="/checkout" element={<Checkout />} />
                 </Routes>
                 <Toaster />
               </HashRouter>

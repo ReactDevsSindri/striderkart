@@ -17,26 +17,15 @@ const ProductCard = ({ product }) => {
         >
           <img src={img} alt="Poduct" />
           <div className="flex absolute bottom-0 opacity-0  group-hover:opacity-100 transition-opacity">
-            <img
-              src={product.images[0]}
-              className="size-16 bg-slate-500"
-              onMouseOver={() => setImg(product.images[0])}
-            />
-            <img
-              src={product.images[1]}
-              className="size-16 bg-slate-500"
-              onMouseOver={() => setImg(product.images[1])}
-            />
-            <img
-              src={product.images[2]}
-              className="size-16 bg-slate-500"
-              onMouseOver={() => setImg(product.images[2])}
-            />
-            <img
-              src={product.images[3]}
-              className="size-16 bg-slate-500"
-              onMouseOver={() => setImg(product.images[3])}
-            />
+            {product.images.map((imgUrl) => {
+              return (
+                <img
+                  src={imgUrl}
+                  className="size-16 bg-slate-500"
+                  onMouseOver={() => setImg(imgUrl)}
+                />
+              );
+            })}
           </div>
         </div>
         <p

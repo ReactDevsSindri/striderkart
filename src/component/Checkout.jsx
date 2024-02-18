@@ -22,7 +22,6 @@ export default function Checkout() {
   };
   return (
     <div className="flex justify-center ">
-      <CartProduct />
       <div className="bg-slate-400 mt-10 w-[400px] p-10 border-black rounded-lg shadow-md">
         <form onSubmit={handleSumbit}>
           <h1 className="my-5">

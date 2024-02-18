@@ -36,7 +36,7 @@ const ProductPage = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [productId]);
   useEffect(() => {
     const inCart = cartContext.cartValue.find(
       (product) => product._id === productId
