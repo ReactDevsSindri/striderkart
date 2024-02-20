@@ -1,5 +1,5 @@
 import "./Navigation.css";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   Sheet,
@@ -21,11 +21,23 @@ import assets from "../assets";
 import CartProduct from "./CartProduct";
 import CartContext from "../context/CartContext";
 import * as lodash from "lodash";
+import Checkout from "./Checkout";
+import CheckoutContext from "../context/CheckOutContext";
+import Images from "../assets/index";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../components/ui/dropdown-menu";
 
 const Navigation = () => {
   const appContext = useContext(AppContext);
   const themeData = useContext(ThemeContext);
   const cartContext = useContext(CartContext);
+  const checkoutContext = useContext(CheckoutContext);
 
   function calculateTotal() {
     if (cartContext.cartValue.length === 0) return 0;
@@ -78,16 +90,32 @@ const Navigation = () => {
           </li>
         ))}
         {appContext.contextValues.userDetails.isLoggedIn ? (
-          <Button
-            onClick={() =>
-              appContext.setContextValues({
-                ...appContext.contextValues,
-                userDetails: { isLoggedIn: false },
-              })
-            }
-          >
-            Logout <LogOut className="ml-1" />
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <img src={Images.personIcon}></img>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Orders</DropdownMenuItem>
+              <DropdownMenuItem>Wishlist</DropdownMenuItem>
+              <DropdownMenuItem>Gift Card</DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Button
+                  onClick={() =>
+                    appContext.setContextValues({
+                      ...appContext.contextValues,
+                      userDetails: { isLoggedIn: false },
+                    })
+                  }
+                >
+                  Logout <LogOut className="ml-1" />
+                </Button>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         ) : (
           <NavLink to="/login">
             <Button>Login</Button>
@@ -143,39 +171,55 @@ const Navigation = () => {
       <Sheet>
         <SheetTrigger asChild>
           {appContext.contextValues.userDetails.isLoggedIn && (
-            <Button size="icon">
+            <Button
+              onClick={() => {
+                checkoutContext.setShowCheckout(false);
+              }}
+              size="icon"
+            >
               <ShoppingBasket className=" " />
               {cartContext.cartValue.length}
             </Button>
           )}
         </SheetTrigger>
         <SheetContent>
-          <ScrollArea className="h-4/5">
-            {cartContext.cartValue.map((product) => (
-              <React.Fragment key={product}>
-                <CartProduct product={product} />
-                <Separator />
-              </React.Fragment>
-            ))}
-          </ScrollArea>
-          <SheetFooter>
-            <SheetClose asChild>
-              <div
-                className="w-full mt-5 bg-slate-300 p-3 text-white"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-around",
-                  alignItems: "center",
-                  position: "absolute",
-                  bottom: "0",
-                  right: "0",
-                }}
-              >
-                <p>Total :₹{calculateTotal()}</p>
-                <Button>Checkout</Button>
-              </div>
-            </SheetClose>
-          </SheetFooter>
+          {checkoutContext.showCheckout ? (
+            <Checkout />
+          ) : (
+            <>
+              <ScrollArea className="h-4/5">
+                {cartContext.cartValue.map((product) => (
+                  <React.Fragment key={product}>
+                    <CartProduct product={product} />
+                    <Separator />
+                  </React.Fragment>
+                ))}
+              </ScrollArea>
+              <SheetFooter>
+                <div
+                  className="w-full mt-5 bg-slate-300 p-3 text-white"
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    alignItems: "center",
+                    position: "absolute",
+                    bottom: "0",
+                    right: "0",
+                  }}
+                >
+                  <p>Total :₹{calculateTotal()}</p>
+
+                  <Button
+                    onClick={() => {
+                      checkoutContext.setShowCheckout(true);
+                    }}
+                  >
+                    Checkout
+                  </Button>
+                </div>
+              </SheetFooter>{" "}
+            </>
+          )}
         </SheetContent>
       </Sheet>
 

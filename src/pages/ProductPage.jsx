@@ -36,7 +36,7 @@ const ProductPage = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [productId]);
   useEffect(() => {
     const inCart = cartContext.cartValue.find(
       (product) => product._id === productId
@@ -88,7 +88,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <div className="h-[calc(100vh-72px)]  flex flex-col md:grid md:grid-cols-4   dark:bg-slate-700 dark:text-white">
+      <div className="min-h-[calc(100vh-72px)]  flex flex-col md:grid md:grid-cols-4   dark:bg-slate-700 dark:text-white">
         <div className="md:col-span-3  flex flex-col justify-start items-center">
           <img className="w-full md:w-1/3 mb-5" src={img} alt="Nike Blue"></img>
 
@@ -159,7 +159,7 @@ const ProductPage = () => {
               </Button>
             </NavLink>
           </div>
-          <div>
+          <div className=" bg-inherit">
             <h1 className="text-3xl">Review and ratings</h1>
             <p className="flex flex-row">
               <p className="text-4xl">4.3</p>{" "}
@@ -181,7 +181,7 @@ const ProductPage = () => {
               </span>
               <p className="text-1xl">4,940 ratings and 234 reviews</p>
             </p>
-            <div className="flex flex-row">
+            <div className="flex flex-row ">
               <span
                 onClick={() => {
                   setRate(1);
@@ -219,7 +219,7 @@ const ProductPage = () => {
               </span>
               <h1 className="text-1xl mx-2"> {reviews[rate]}</h1>
             </div>
-            <div className="flex flex-row">
+            <div className="flex flex-row flex-wrap">
               <img className="size-20" src={assets.Img1} alt="error" />
               <img className="size-20" src={assets.Img2} alt="error" />
               <img className="size-20" src={assets.Img} alt="error" />
@@ -227,10 +227,10 @@ const ProductPage = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <h1 className="text-6xl text-center">Simmilar Products</h1>
-        <ProductListPage />
+        <div className=" hidden md:block">
+          <h1 className="text-6xl text-center">Simmilar Products</h1>
+          <ProductListPage />
+        </div>
       </div>
     </>
   );
