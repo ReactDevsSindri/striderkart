@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/striderkart/static/css/main.07e07c1f.css",
-    "main.js": "/striderkart/static/js/main.fbc9273f.js",
+    "main.css": "/striderkart/static/css/main.2e5cd463.css",
+    "main.js": "/striderkart/static/js/main.2ea16a85.js",
     "static/js/886.fda668ec.chunk.js": "/striderkart/static/js/886.fda668ec.chunk.js",
     "static/js/726.9de46774.chunk.js": "/striderkart/static/js/726.9de46774.chunk.js",
     "static/js/787.ef3f9875.chunk.js": "/striderkart/static/js/787.ef3f9875.chunk.js",
@@ -9,21 +9,23 @@
     "static/media/Shoe1.png": "/striderkart/static/media/Shoe1.4b4713a3b0d3783841b6.png",
     "static/media/Shoe1a.png": "/striderkart/static/media/Shoe1a.6de4ad7a861334df20f7.png",
     "static/media/Shoe1b.png": "/striderkart/static/media/Shoe1b.5cea64a227ae6e2cb240.png",
+    "static/media/success.gif": "/striderkart/static/media/success.88309b08bdb921bd41d0.gif",
     "static/media/brand_logo.png": "/striderkart/static/media/brand_logo.35d9e497340ee3cd6d7e.png",
+    "static/media/mubarak.jpg": "/striderkart/static/media/mubarak.5b000b0ddd8a9371c848.jpg",
     "static/media/red-nike-1.jpg": "/striderkart/static/media/red-nike-1.189bf5723de92a61cb03.jpg",
     "static/media/cart.png": "/striderkart/static/media/cart.0edb59010b1db3cbc904.png",
     "static/media/red-nike-3.jpg": "/striderkart/static/media/red-nike-3.ab090fdded9ac37a2cca.jpg",
     "static/media/red-nike-2.jpg": "/striderkart/static/media/red-nike-2.725c011aa7b33701fc1c.jpg",
     "static/media/img4.jpg": "/striderkart/static/media/img4.6be001ee9e56d68b20e0.jpg",
     "index.html": "/striderkart/index.html",
-    "main.07e07c1f.css.map": "/striderkart/static/css/main.07e07c1f.css.map",
-    "main.fbc9273f.js.map": "/striderkart/static/js/main.fbc9273f.js.map",
+    "main.2e5cd463.css.map": "/striderkart/static/css/main.2e5cd463.css.map",
+    "main.2ea16a85.js.map": "/striderkart/static/js/main.2ea16a85.js.map",
     "886.fda668ec.chunk.js.map": "/striderkart/static/js/886.fda668ec.chunk.js.map",
     "726.9de46774.chunk.js.map": "/striderkart/static/js/726.9de46774.chunk.js.map",
     "787.ef3f9875.chunk.js.map": "/striderkart/static/js/787.ef3f9875.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07e07c1f.css",
-    "static/js/main.fbc9273f.js"
+    "static/css/main.2e5cd463.css",
+    "static/js/main.2ea16a85.js"
   ]
 }
