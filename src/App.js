@@ -18,6 +18,8 @@ import AddProductPage from "./pages/AddProductPage";
 import CartContext from "./context/CartContext";
 import Checkout from "./component/Checkout";
 import AboutUs from "./pages/AboutUs";
+import OrderPlaced from "./pages/OrderPlaced";
+import CheckoutContext from "./context/CheckOutContext";
 
 function App() {
   const [contextValues, setContextValues] = useState({
@@ -25,6 +27,7 @@ function App() {
   });
   const [cartValue, setCartValue] = useState([]);
   const [themeValue, setThemeValue] = useState({ currentMode: "light" });
+  const [showCheckout, setShowCheckout] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("isLoggedIn") === "1") {
       setContextValues({
@@ -40,29 +43,32 @@ function App() {
       <ThemeContext.Provider value={{ themeValue, setThemeValue }}>
         <AppContext.Provider value={{ contextValues, setContextValues }}>
           <CartContext.Provider value={{ cartValue, setCartValue }}>
-            <>
-              <HashRouter>
-                <Navigation key={localStorage.getItem("isLoggedIn")} />
-                <div style={{ marginTop: "72px" }}></div>
-                <Routes>
-                  <Route path="/" element={<Homepage />} />
-                  <Route
-                    path="/productlistpage"
-                    element={<ProductListPage />}
-                  />
-                  <Route
-                    path="/productpage/:productId"
-                    element={<ProductPage />}
-                  />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/aboutus" element={<AboutUs />} />
-                  <Route path="/contactus" element={<ContactUs />} />
-                  <Route path="/addproduct" element={<AddProductPage />} />
-                  <Route path="/checkout" element={<Checkout />} />
-                </Routes>
-                <Toaster />
-              </HashRouter>
-            </>
+            <CheckoutContext.Provider value={{ showCheckout, setShowCheckout }}>
+              <>
+                <HashRouter>
+                  <Navigation key={localStorage.getItem("isLoggedIn")} />
+                  <div style={{ marginTop: "72px" }}></div>
+                  <Routes>
+                    <Route path="/" element={<Homepage />} />
+                    <Route
+                      path="/productlistpage"
+                      element={<ProductListPage />}
+                    />
+                    <Route
+                      path="/productpage/:productId"
+                      element={<ProductPage />}
+                    />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/aboutus" element={<AboutUs />} />
+                    <Route path="/contactus" element={<ContactUs />} />
+                    <Route path="/addproduct" element={<AddProductPage />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/orderplaced" element={<OrderPlaced />} />
+                  </Routes>
+                  <Toaster />
+                </HashRouter>
+              </>
+            </CheckoutContext.Provider>
           </CartContext.Provider>
         </AppContext.Provider>
       </ThemeContext.Provider>
