@@ -20,23 +20,66 @@ import {
   SheetTrigger,
 } from "../components/ui/sheet";
 import { Checkbox } from "../components/ui/checkbox";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { SanityConfig } from "../env";
+import { createClient, imageUrlBuilder } from "@sanity/client";
 
 export default function Checkout() {
-  const [localAdd, setLocalAdd] = useState();
-  const [add1, setAdd1] = useState();
-  const [addState, setAddState] = useState();
-  const [addDist, setaddDist] = useState();
-  const [addPin, setAddPin] = useState();
+  const [buildingNumber, setBuildingNumber] = useState();
+  const [streetName, setStreetName] = useState();
+  const [districtName, setDistrictName] = useState();
+  const [stateName, setstateName] = useState();
+  const [pinCode, setPinCode] = useState();
+  const navigate = useNavigate();
 
   const handleSumbit = (event) => {
+    console.log("handle Submit");
     event.preventDefault();
-    console.log(localAdd, add1, addState, addDist, addPin);
-    setAdd1("");
-    setAddPin("");
-    setAddState("");
-    setLocalAdd("");
-    setaddDist("");
+    // Initialize Sanity client
+    const client = createClient(SanityConfig);
+    // Prepare data
+    const data = {
+      _type: "order",
+      username: "JohnDoe",
+      userId: "0123456789abcdef01234567",
+      products: [
+        {
+          productId: "p123",
+          productName: "Product 1",
+          productSize: "L",
+          productPrice: 10.99,
+          productQty: 2,
+        },
+        {
+          productId: "p456",
+          productName: "Product 2",
+          productSize: "M",
+          productPrice: 15.99,
+          productQty: 1,
+        },
+      ],
+      phoneNumber: "1234567890",
+      shippingAddress: {
+        buildingNumber: buildingNumber,
+        streetName: streetName,
+        districtName: districtName,
+        stateName: stateName,
+        pinCode: pinCode,
+      },
+    };
+    console.log(data);
+
+    // Post data
+    client
+      .create(data)
+      .then((response) => {
+        console.log("Data posted successfully:", response);
+      })
+      .catch((error) => {
+        console.error("Error posting data:", error);
+      });
+
+    navigate("/orderplaced");
   };
   return (
     <div>
@@ -47,23 +90,23 @@ export default function Checkout() {
               Address <span className="text-red">*</span>
             </h1>
             <div className="flex flex-col">
-              <label htmlFor="locality">Locality</label>
+              <label htmlFor="Building No.">Building No.</label>
               <Input
-                placeholder="Enter Your Locality Address"
+                placeholder="Building Number"
                 type="text"
-                id="locality"
-                value={localAdd}
-                onChange={(event) => setLocalAdd(event.target.value)}
+                id="Building No."
+                value={buildingNumber}
+                onChange={(event) => setBuildingNumber(event.target.value)}
                 required
               />
-              <label htmlFor="address1" className="my-2">
-                Address1
+              <label htmlFor="Street" className="my-2">
+                "Street
               </label>
               <Input
-                placeholder="Enter Your Address"
+                placeholder="Street"
                 type="text"
-                value={add1}
-                onChange={(event) => setAdd1(event.target.value)}
+                value={streetName}
+                onChange={(event) => setStreetName(event.target.value)}
                 required
               />
               <label htmlFor="state" className="my-2">
@@ -71,43 +114,41 @@ export default function Checkout() {
               </label>
 
               <Input
-                placeholder="Enter Your State"
+                placeholder="State"
                 type="text"
-                value={addState}
-                onChange={(event) => setAddState(event.target.value)}
+                value={stateName}
+                onChange={(event) => setstateName(event.target.value)}
                 required
               />
               <label htmlFor="district" className="my-2">
                 District
               </label>
               <Input
-                placeholder="Enter Your District"
+                placeholder="District"
                 type="text"
-                value={addDist}
-                onChange={(event) => setaddDist(event.target.value)}
+                value={districtName}
+                onChange={(event) => setDistrictName(event.target.value)}
                 required
               />
               <label htmlFor="pincode" className="my-2">
                 Pin Code
               </label>
               <Input
-                placeholder="Enter Your PIN"
+                placeholder="Pincode"
                 type="number"
-                value={addPin}
-                onChange={(event) => setAddPin(event.target.value)}
+                value={pinCode}
+                onChange={(event) => setPinCode(event.target.value)}
                 required
               />
             </div>
             <Checkbox className="my-2" />
             <label className="mx-2">Cash On Delivery</label>
 
-            <NavLink to="/orderplaced">
-              <SheetClose>
-                <Button type="submit" className="my-2">
-                  Place Your Order
-                </Button>
-              </SheetClose>
-            </NavLink>
+            <SheetClose>
+              <Button type="submit" className="my-2">
+                Place Your Order
+              </Button>
+            </SheetClose>
           </form>
         </div>
       </div>
