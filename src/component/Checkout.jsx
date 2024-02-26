@@ -61,9 +61,9 @@ export default function Checkout() {
       phoneNumber: "1234567890",
       shippingAddress: {
         buildingNumber: buildingNumber,
-        streetName: streetName,
-        districtName: districtName,
-        stateName: stateName,
+        street: streetName,
+        district: districtName,
+        state: stateName,
         pinCode: pinCode,
       },
     };
