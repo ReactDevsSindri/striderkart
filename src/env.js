@@ -3,5 +3,5 @@ export const SanityConfig = {
   dataset: "production",
   useCdn: true, // Enable CDN to improve performance (optional)
   token:
-    "skLI5OU7LOO9gV1UWDAdqvOhtRygWz1HlJU69yVxAkg2c4opZbADsl9zW9YZRl86bJAqKSVEuyVz8BA1kTXjJkNRT1Ntyg7m2o3FBf26IWOrs8rrrSiJsmKqMmH2igX1ffFJqF2Ji2RgDAOBYLeSXY5YCEaCIcNszOSZ1ecbMijLas8ImWOJ",
+    "skUjUj0aWV4Aw78IDh85OU9jUM0VQhK6Lu4sqcn8094CL3JHlvEUpPPda1RsKa1okMNQ7uCP2Iu65DMwR10vHdS8zvsxGCWEAHwxlQ5LQqtJv7zr2DMq99wlnqSmiPKW9KKDy6Uk4mtmJDKdhibu6ntjj51VpOEtcIOwwPIIPn8HkH57nnqa",
 };

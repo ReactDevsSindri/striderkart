@@ -1,7 +1,7 @@
 // import { DropdownMenuIcon } from "@radix-ui/react-icons";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CartProduct from "./CartProduct";
 import {
   Drawer,
@@ -23,6 +23,7 @@ import { Checkbox } from "../components/ui/checkbox";
 import { NavLink, useNavigate } from "react-router-dom";
 import { SanityConfig } from "../env";
 import { createClient, imageUrlBuilder } from "@sanity/client";
+import CartContext from "../context/CartContext";
 
 export default function Checkout() {
   const [buildingNumber, setBuildingNumber] = useState();
@@ -31,6 +32,8 @@ export default function Checkout() {
   const [stateName, setstateName] = useState();
   const [pinCode, setPinCode] = useState();
   const navigate = useNavigate();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const cartContext = useContext(CartContext);
 
   const handleSumbit = (event) => {
     console.log("handle Submit");
@@ -42,23 +45,20 @@ export default function Checkout() {
       _type: "order",
       username: "JohnDoe",
       userId: "0123456789abcdef01234567",
-      products: [
-        {
-          productId: "p123",
-          productName: "Product 1",
-          productSize: "L",
-          productPrice: 10.99,
-          productQty: 2,
-        },
-        {
-          productId: "p456",
-          productName: "Product 2",
-          productSize: "M",
-          productPrice: 15.99,
+      products: cartContext.cartValue.map((product) => {
+        return {
+          productId: product._id,
+          productName: product.productName,
+          productSize: product.sizeSlected,
+          productPrice: product.sizes.find(
+            (size) => size.size === product.sizeSlected
+          ).price,
           productQty: 1,
-        },
-      ],
-      phoneNumber: "1234567890",
+          productImg: product?.images[0],
+        };
+      }),
+
+      phoneNumber: phoneNumber,
       shippingAddress: {
         buildingNumber: buildingNumber,
         street: streetName,
@@ -90,6 +90,15 @@ export default function Checkout() {
               Address <span className="text-red">*</span>
             </h1>
             <div className="flex flex-col">
+              <label htmlFor="Phone No.">Phone No.</label>
+              <Input
+                placeholder="Phone Number"
+                type="text"
+                id="Phone No."
+                value={phoneNumber}
+                onChange={(event) => setPhoneNumber(event.target.value)}
+                required
+              />
               <label htmlFor="Building No.">Building No.</label>
               <Input
                 placeholder="Building Number"
