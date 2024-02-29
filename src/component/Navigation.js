@@ -98,7 +98,9 @@ const Navigation = () => {
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Orders</DropdownMenuItem>
+              <DropdownMenuItem>
+                <NavLink to="/orders">Orders</NavLink>
+              </DropdownMenuItem>
               <DropdownMenuItem>Wishlist</DropdownMenuItem>
               <DropdownMenuItem>Gift Card</DropdownMenuItem>
               <DropdownMenuItem>

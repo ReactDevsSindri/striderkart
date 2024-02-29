@@ -20,6 +20,7 @@ import Checkout from "./component/Checkout";
 import AboutUs from "./pages/AboutUs";
 import OrderPlaced from "./pages/OrderPlaced";
 import CheckoutContext from "./context/CheckOutContext";
+import { OrderHistory } from "./pages/OrderHistory";
 
 function App() {
   const [contextValues, setContextValues] = useState({
@@ -64,6 +65,7 @@ function App() {
                     <Route path="/addproduct" element={<AddProductPage />} />
                     <Route path="/checkout" element={<Checkout />} />
                     <Route path="/orderplaced" element={<OrderPlaced />} />
+                    <Route path="/orders" element={<OrderHistory />} />
                   </Routes>
                   <Toaster />
                 </HashRouter>
