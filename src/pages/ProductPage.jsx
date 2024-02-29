@@ -23,6 +23,7 @@ const ProductPage = () => {
   let [product, setProduct] = useState();
   let [size, setSize] = useState();
   const { toast } = useToast();
+  const [reviewsFromDB, setReviewsFromDB] = useState([]);
   useEffect(() => {
     const client = createClient(SanityConfig);
     client
@@ -36,7 +37,17 @@ const ProductPage = () => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+    client
+      .fetch(`*[_type == "review" && productId == "${productId}"]`)
+      .then((reviewData) => {
+        console.log(reviewData);
+        setReviewsFromDB(reviewData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, [productId]);
+
   useEffect(() => {
     const inCart = cartContext.cartValue.find(
       (product) => product._id === productId
@@ -224,6 +235,24 @@ const ProductPage = () => {
               <img className="size-20" src={assets.Img2} alt="error" />
               <img className="size-20" src={assets.Img} alt="error" />
               <img className="size-20" src={assets.Img4} alt="error" />
+            </div>
+            <div>
+              {reviewsFromDB.length > 0 ? (
+                reviewsFromDB.map((review) => (
+                  <div className="my-3  border-slate-400/50 border-b-2">
+                    <div className="flex ">
+                      <div className="flex items-center justify-center bg-green-500 w-10 mr-2  rounded-lg">
+                        {review.rating}
+                        <StarFilledIcon />
+                      </div>
+                      <h1 className=" font-semibold">{review.review}</h1>
+                    </div>
+                    <h1 className=" text-slate-100/50 my-2">John Doe</h1>
+                  </div>
+                ))
+              ) : (
+                <h1>No Reviews Yet</h1>
+              )}
             </div>
           </div>
         </div>
