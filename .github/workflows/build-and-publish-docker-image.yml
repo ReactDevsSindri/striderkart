@@ -20,7 +20,7 @@ jobs:
       run: |
         # Assuming tests are in the "tests" directory or specified otherwise
         # You can adjust this command based on your testing framework (e.g., pytest, npm test, etc.)
-        npm run test  # Replace this with the actual test command
+        npm install && npm run test  # Replace this with the actual test command
 
     # Set up Docker Buildx for building images
     - name: Set up Docker Buildx
